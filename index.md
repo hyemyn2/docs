@@ -1,25 +1,32 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
-
 hero:
   name: "Vue Pivottable"
-  text: "A Guide of vue-pivottable"
-  tagline: My great project tagline
+  text: "The official guide for vue-pivottable"
+  tagline: "Flexible and easy-to-use pivot table component for Vue 3"
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Get started
+      link: /get-started
     - theme: alt
-      text: API Examples
-      link: /api-examples
-
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      text: Demo
+      link: /demo
 ---
 
+# Quick Start
+
+```vue
+<template>
+  <VuePivottableUi
+    :data="[
+      { color: 'blue', shape: 'circle' },
+      { color: 'red', shape: 'triangle' }
+    ]"
+    :rows="['color']"
+    :cols="['shape']"
+  />
+</template>
+
+<script setup>
+import { VuePivottableUi } from 'vue-pivottable'
+</script>
