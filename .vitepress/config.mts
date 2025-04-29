@@ -16,11 +16,25 @@ export default defineConfig({
       {
         text: 'Guide',
         items: [
+          { text: 'Introduction', link: '/introduction' },
           { text: 'Getting Started', link: '/getting-started' },
-          { text: 'Advanced', link: '/advanced' },
-          { text: 'Props', link: '/props' },
-          { text: 'Styling', link: '/styling' },
         ]
+      },
+      {
+        text: 'Advanced',
+        items: [
+          { text: 'Locale', link: '/locale' },
+          { text: 'Slot', link: '/slot' },
+          { text: 'Scoped Slot', link: '/scoped-slot' },
+          { text: 'Utilities', link: '/utilities' },
+          { text: 'Renderer', link: '/renderer' },
+        ]
+      },
+      {
+        text: 'Props', link: '/props' 
+      },
+      {
+        text: 'Styling', link: '/styling' 
       }
     ],
 
