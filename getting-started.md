@@ -101,3 +101,8 @@ import "vue-pivottable/dist/vue-pivottable.css";
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
+
+### Vue Pivottable UI with Plotly Renderer
+
+The Plotly renderer is not included in the core `vue-pivottable` library by default, but you can install and use it separately.
+Check the renderer section at https://vue-pivottable.vercel.app/renderer.html for more details.
