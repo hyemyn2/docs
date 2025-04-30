@@ -1,12 +1,34 @@
 # Renderer
 
-## Usage
+## Custom Renderer
 
-Just define a custom `renderer` function and pass it as props.
+`vue-pivottable` supports custom renderers in addition to its built-in ones. Currently, two official custom renderers are available: the Plotly-based `plotly-renderer` and the lightweight `lazy-table-renderer`, both provided as separate installable packages.
+You can install and use them individually as needed. Alternatively, you can define **your own custom renderer function** and pass it via the `renderers` prop to fully customize how the pivot data is displayed.
 
-## plotly renderer <sup style="color:#42b983">New in 0.4.6+</sup>
+## plotly renderer
 
-No longer include plotly-renderer in vue-pivottable, but you can use it like this:
+### Dependencies
+
+Dependencies
+The Plotly renderer is built using @clalarco/vue3-plotly, a lightweight Vue 3 wrapper for Plotly.js.
+This library is included as a dependency of `@vue-pivottable/plotly-renderer`, so you don’t need to install it separately.
+If you wish to customize Plotly behavior, refer to its documentation for more advanced usage.
+
+#### Built-in Charts
+
+The Plotly renderer comes with 9 built-in chart types you can use out of the box:
+
+- Area Chart
+- Dot Chart
+- Grouped Bar Chart
+- Grouped Column Chart
+- Line Chart
+- Multiple Pie Chart
+- Scatter Chart
+- Stacked Bar Chart
+- Stacked Column Chart
+
+These charts can be used directly by selecting them from the renderer dropdown or by setting them programmatically.
 
 ### Install
 
@@ -14,97 +36,41 @@ No longer include plotly-renderer in vue-pivottable, but you can use it like thi
 npm install @vue-pivottable/plotly-renderer
 ```
 
-### es6
+📦 **unpkg** : <https://unpkg.com/vue-pivottable@1.0.0-alpha.3/dist/vue-pivottable.umd.js><br/>
+🌏 **jsDelivr** : <https://cdn.jsdelivr.net/npm/vue-pivottable@1.0.0-alpha.3/dist/vue-pivottable.umd.min.js>
 
-```js
-import PlotlyRenderer from '@vue-pivottable/plotly-renderer'
+### Usage
 
-const renderer = (() => ({
-  'Grouped Column Chart': PlotlyRenderer['Grouped Column Chart'],
-  'Stacked Column Chart': PlotlyRenderer['Stacked Column Chart'],
-  'Grouped Bar Chart': PlotlyRenderer['Grouped Bar Chart'],
-  'Stacked Bar Chart': PlotlyRenderer['Stacked Bar Chart'],
-  'Line Chart': PlotlyRenderer['Line Chart'],
-  'Dot Chart': PlotlyRenderer['Dot Chart'],
-  'Area Chart': PlotlyRenderer['Area Chart'],
-  'Scatter Chart': PlotlyRenderer['Scatter Chart'],
-  'Multiple Pie Chart': PlotlyRenderer['Multiple Pie Chart']
-}))()
+```vue
+<template>
+  <VuePivottableUi
+    :data="[
+      { color: 'blue', shape: 'circle' },
+      { color: 'red', shape: 'triangle' },
+    ]"
+    :rows="['color']"
+    :cols="['shape']"
+    :renderers="renderers"
+  />
+</template>
+
+<script setup>
+import { markRaw } from "vue";
+import { VuePivottableUi } from "vue-pivottable";
+import "vue-pivottable/dist/vue-pivottable.css";
+import { VuePivottableUi, Renderer } from "vue-pivottable";
+import PlotlyRenderer from "@vue-pivottable/plotly-renderer";
+
+// add plotly renderer to default renderer
+const renderers = markRaw({
+  ...Renderer,
+  ...PlotlyRenderer,
+});
+</script>
 ```
 
-### browser
+### Demo
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plotly Renderer</title>
-  <link rel="stylesheet" href="https://unpkg.com/vue-pivottable@0.4.5/dist/vue-pivottable.css">
-  <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue-pivottable@0.4.5/dist/vue-pivottable.umd.js"></script>
-  <script src="dist/plotly-renderer.umd.js"></script>
-</head>
-<body>
-  <div id="app">
-    <vue-pivottable-ui
-      :data="[{color: 'blue', shape: 'circle'},{color: 'red', shape: 'triangle'}]"
-      renderer-name="Area Chart"
-      :renderers="renderers"
-      :rows="['color']"
-      :cols="['shape']"
-    >
-    </vue-pivottable-ui>
-  </div>
-  <script type="text/javascript">
-    Vue.use(VuePivottable.default)
-    new Vue({
-      el: '#app',
-      computed: {
-        renderers () {
-          return (() => ({
-            'Grouped Column Chart': PlotlyRenderer['Grouped Column Chart'],
-            'Stacked Column Chart': PlotlyRenderer['Stacked Column Chart'],
-            'Grouped Bar Chart': PlotlyRenderer['Grouped Bar Chart'],
-            'Stacked Bar Chart': PlotlyRenderer['Stacked Bar Chart'],
-            'Line Chart': PlotlyRenderer['Line Chart'],
-            'Dot Chart': PlotlyRenderer['Dot Chart'],
-            'Area Chart': PlotlyRenderer['Area Chart'],
-            'Scatter Chart': PlotlyRenderer['Scatter Chart'],
-            'Multiple Pie Chart': PlotlyRenderer['Multiple Pie Chart']
-          }))()
-        }
-      }
-    })
-  </script>
-</body>
-</html>
+to be updated
 
-```
-
-## scroll table renderer <sup style="color:#42b983">New in 0.4.64+</sup>
-
-### Install
-
-```bash
-npm install @vue-pivottable/scroll-renderer
-```
-
-### es6
-
-```js
-import ScrollRenderer from '@vue-pivottable/scroll-renderer'
-
-const renderer = (() => ({
-  Table : ScrollRenderer.Table,
-  'Table Heatmap': ScrollRenderer['Table Heatmap'],
-  'Table Col Heatmap': ScrollRenderer['Table Col Heatmap'],
-  'Table Row Heatmap': ScrollRenderer['Table Row Heatmap']
-}))()
-```
-
-### Live Demo
-
-[link](https://jsfiddle.net/seungwoo321/nopkdha6/)
+## lazy table renderer
