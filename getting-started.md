@@ -13,6 +13,12 @@ outline: deep
 npm install vue-pivottable
 ```
 
+### PNPM
+
+```bash
+pnpm install vue-pivottable
+```
+
 ### Direct Download / CDN
 
 📦 **unpkg** : <https://unpkg.com/vue-pivottable@1.0.0-alpha.3/dist/vue-pivottable.umd.js><br/>
