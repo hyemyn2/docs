@@ -2,48 +2,91 @@
 outline: deep
 ---
 
-# Runtime API Examples
+# Getting Started
 
-This page demonstrates usage of some of the runtime APIs provided by VitePress.
+## Installation
 
-The main `useData()` API can be used to access site, theme, and page data for the current page. It works in both `.md` and `.vue` files:
+### NPM
 
-```md
-<script setup>
-import { useData } from 'vitepress'
-
-const { theme, page, frontmatter } = useData()
-</script>
-
-## Results
-
-### Theme Data
-<pre>{{ theme }}</pre>
-
-### Page Data
-<pre>{{ page }}</pre>
-
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
+```bash
+# install in your project
+npm install vue-pivottable
 ```
 
+### Direct Download / CDN
+
+📦 **unpkg** : <https://unpkg.com/vue-pivottable@1.0.0-alpha.3/dist/vue-pivottable.umd.js><br/>
+🌏 **jsDelivr** : <https://cdn.jsdelivr.net/npm/vue-pivottable@1.0.0-alpha.3/dist/vue-pivottable.umd.min.js>
+
+```html
+<!-- Include vue-pivottable after Vue -->
+<script src="/path/to/vue.js"></script>
+<script src="/path/to/vue-pivottable.umd.min.js"></script>
+```
+
+## Quick Start
+
+### Vue Pivottable
+
+`VuePivottable` is a simple component that renders a static pivot table.  
+It displays `data` according to the specified `rows` and `cols` options.
+
+```vue
+<template>
+  <VuePivottable
+    :data="[
+      { color: 'blue', shape: 'circle' },
+      { color: 'red', shape: 'triangle' },
+    ]"
+    :rows="['color']"
+    :cols="['shape']"
+  />
+</template>
+
 <script setup>
-import { useData } from 'vitepress'
-
-const { site, theme, page, frontmatter } = useData()
+import { VuePivottable } from "vue-pivottable";
+import "vue-pivottable/dist/vue-pivottable.css";
 </script>
+```
 
-## Results
+> 🔴 You must import the `vue-pivottable.css` file to apply the default styling.
+> Without this CSS, the pivot table may not be displayed correctly.
 
-### Theme Data
-<pre>{{ theme }}</pre>
+<iframe
+  src="https://codesandbox.io/embed/quickstart-vue-pivottable-w7h7kd?view=preview&hidenavigation=1&codemirror=1&hidedevtools=1"
+  style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="quickstart-vue-pivottable"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
-### Page Data
-<pre>{{ page }}</pre>
+### Vue Pivottable UI
 
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
+`VuePivottableUi` extends the functionality by providing a user interface
+that allows users to dynamically customize `rows` and `cols`.
+Users can adjust how the pivot table is displayed by dragging attributes between areas or applying filters to the data.
 
-## More
+```vue
+<template>
+  <VuePivottableUi
+    :data="[
+      { color: 'blue', shape: 'circle' },
+      { color: 'red', shape: 'triangle' },
+    ]"
+    :rows="['color']"
+    :cols="['shape']"
+  />
+</template>
 
-Check out the documentation for the [full list of runtime APIs](https://vitepress.dev/reference/runtime-api#usedata).
+<script setup>
+import { VuePivottableUi } from "vue-pivottable";
+import "vue-pivottable/dist/vue-pivottable.css";
+</script>
+```
+
+<iframe src="https://codesandbox.io/p/devbox/quickstart-vue-pivottable-ui-5zlrx8?embed=1&file=%2Fsrc%2FApp.vue?view=split"
+  style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="quickstart-vue-pivottable-ui"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
