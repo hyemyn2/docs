@@ -72,3 +72,5 @@ const renderers = markRaw({
 ### Demo
 
 to be updated
+
+## lazy table renderer
