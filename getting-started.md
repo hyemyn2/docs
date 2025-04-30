@@ -59,9 +59,11 @@ import "vue-pivottable/dist/vue-pivottable.css";
 > Without this CSS, the pivot table may not be displayed correctly.
 
 <iframe
-  src="https://codesandbox.io/embed/quickstart-vue-pivottable-w7h7kd?view=preview&hidenavigation=1&codemirror=1&hidedevtools=1"
-  style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-  title="quickstart-vue-pivottable"
+  src="https://stackblitz.com/edit/vitejs-vite-iyiexnrn?ctl=1&embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  width="100%"
+  height="500"
+  style="border:0; border-radius: 4px; overflow:hidden;"
+  title="Vite Vue3 Sample"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
@@ -90,9 +92,12 @@ import "vue-pivottable/dist/vue-pivottable.css";
 </script>
 ```
 
-<iframe src="https://codesandbox.io/p/devbox/quickstart-vue-pivottable-ui-5zlrx8?embed=1&file=%2Fsrc%2FApp.vue?view=split"
-  style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-  title="quickstart-vue-pivottable-ui"
+<iframe
+  src="https://stackblitz.com/edit/vitejs-vite-dviwcxsq?ctl=1&embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  width="100%"
+  height="500"
+  style="border:0; border-radius: 4px; overflow:hidden;"
+  title="Vite Vue3 Sample"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>

@@ -1,4 +1,3 @@
-
 # Scoped Slot
 
 For more information on ScopedSlot, see the [official Vue documentation](https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots).
@@ -9,9 +8,9 @@ Both slot and scoped slots are supported, but the use of the v-slot directive is
 
 ## pvtAttr
 
-```vue{10-13}
+```vue
 <template>
-  <vue-pivottable-ui
+  <VuePivottableUi
     :data="[
       { color: 'blue', shape: 'circle' },
       { color: 'red', shape: 'triangle' },
@@ -19,30 +18,32 @@ Both slot and scoped slots are supported, but the use of the v-slot directive is
     :rows="['color']"
     :cols="['shape']"
   >
-    <template v-slot:pvtAttr="{ name }">
+    <template #pvtAttr="{ name }">
       <i class="fas fa-filter"></i>
-      {{ name[0].toUpperCase() + name.substring(1) }}
+      {{ capitalize(name) }}
     </template>
-  </vue-pivottable-ui>
+  </VuePivottableUi>
 </template>
 
-<script>
+<script setup>
 import { VuePivottableUi } from "vue-pivottable";
 import "vue-pivottable/dist/vue-pivottable.css";
-export default {
-  components: {
-    VuePivottableUi,
-  },
-};
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 </script>
 ```
 
-<iframe src="https://codesandbox.io/embed/vue-pivottable-ui-pvtattrscopedslot-ylpl4?fontsize=14&hidenavigation=1&theme=light&view=preview"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="vue-pivottable-ui_PvtattrScopedSlot"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+<iframe
+  src="https://stackblitz.com/edit/vitejs-vite-uvgnlrhv?ctl=1&embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  width="100%"
+  height="500"
+  style="border:0; border-radius: 4px; overflow:hidden;"
+  title="Vite Vue3 Sample"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
 ## output
 

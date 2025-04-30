@@ -73,7 +73,6 @@ import "vue-pivottable/dist/vue-pivottable.css";
 const languagePack = {
   en: PivotUtilities.locales.en,
   ko: {
-    koAggregators: PivotUtilities.locales.en.aggregators,
     localeStrings: {
       renderError: "피벗 테이블 결과를 렌더링하는 동안 오류가 발생 했습니다.",
       computeError: "피벗 테이블 결과를 계산하는 동안 오류가 발생 했습니다.",

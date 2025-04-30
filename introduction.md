@@ -8,7 +8,7 @@ outline: deep
 
 It is a Vue port of the jQuery-based [PivotTable.js](https://pivottable.js.org/)
 
-Demo gif 필요
+![Vue Pivottable Demo](/vue-pivottable-demo.gif)
 
 <style>
 .wrapper-demo {
