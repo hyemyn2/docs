@@ -6,10 +6,10 @@ hero:
   tagline: "Flexible and easy-to-use pivot table component for Vue 3"
   actions:
     - theme: brand
-      text: Get started
+      text: 시작하기
       link: /getting-started
     - theme: alt
-      text: Old version (Vue 2)
+      text: 이전 버전 (Vue 2)
       link: https://seungwoo321.github.io/vue-pivottable/
 ---
 
