@@ -1,155 +1,224 @@
 # Props
 
-## data
+## Core Data Props
 
-* Type: `none`
-* Default: `none`
-* **Required**
+### data
 
-data to be summarized
+* **Type**: `Array`, `Object`, or `Function`
+* **Default**: None
+* **Required**: Yes
+* **Description**: The data to be summarized in the pivot table. Can be an array of objects, an array of arrays, or a function that calls back with the data.
 
-## vals
+### vals
 
-* Type: `Array`
-* Default: `[]`
+* **Type**: `Array`
+* **Default**: `[]`
+* **Description**: Attribute names used as arguments to the aggregator function. These define which values will be calculated in the pivot table.
 
-attribute names used as arguments to aggregator (gets passed to aggregator generating function)
+### cols
 
-## cols
+* **Type**: `Array`
+* **Default**: `[]`
+* **Description**: Attribute names to pre-populate in the columns area of the pivot table.
 
-* Type: `Array`
-* Default: `[]`
+### rows
 
-attribute names to prepopulate in cols area
+* **Type**: `Array`
+* **Default**: `[]` 
+* **Description**: Attribute names to pre-populate in the rows area of the pivot table.
 
-## rows
+## Display Control Props
 
-* Type: `Array`
-* Default: `[]`
+### showRowTotal
 
-attribute names to prepopulate in row area
+* **Type**: `Boolean`
+* **Default**: `true`
+* **Description**: Determines whether to show totals for rows.
 
-## rowTotal
+### showColTotal
 
-* Type: `Boolean`
-* Default: `true`
+* **Type**: `Boolean`
+* **Default**: `true`
+* **Description**: Determines whether to show totals for columns.
 
-show total of rows
+### tableMaxWidth
 
-## colTotal
+* **Type**: `Number`
+* **Default**: `0`
+* **Description**: Sets the maximum width of the pivot table in pixels. A value of 0 means no maximum width.
 
-* Type: `Boolean`
-* Default: `true`
+## Aggregation Props
 
-show total of cols
+### aggregators
 
-## aggregators
+* **Type**: `Object`
+* **Default**: Imported from utilities
+* **Description**: Dictionary of generator functions for aggregations available in the dropdown (e.g., Sum, Count, Average).
 
-* Type: `Object`
-* Default: `aggregators` from `Utilities`
+### aggregatorName
 
-dictionary of generators for aggregation functions in dropdown (see [original PivotTable.js documentation](https://github.com/nicolaskruchten/pivottable/wiki/Aggregators))
+* **Type**: `String`
+* **Default**: `'Count'`
+* **Description**: Key to the `aggregators` object specifying which aggregator to use for calculations.
 
-## aggregatorName
+## Rendering Props
 
-* Type: `String`
-* Default: `Count`
+### renderers
 
-key to `aggregators` object specifying the aggregator to use for computations
+* **Type**: `Object`
+* **Default**: `{}`
+* **Description**: Object containing renderer components available to display the pivot table.
 
-## rendererName
+### rendererName
 
-* Type: `String`
-* Default : `Table`
+* **Type**: `String`
+* **Default**: `'Table'`
+* **Description**: Key to the `renderers` object specifying which renderer to use for display.
 
-key to renderers object specifying the renderer to use
+### heatmapMode
 
-## valueFilter
+* **Type**: `String`
+* **Default**: `undefined`
+* **Description**: Specifies how to apply color heatmap to values. Options include `'full'`, `'row'`, or `'col'`.
 
-* Type: `Object`
-* Default: `{}`
+### tableColorScaleGenerator
 
-object whose keys are attribute names and values are objects of attribute value-boolean pairs which denote records to include or exclude from computation and rendering; used to prepopulate the filter menus that appear on double-click
+* **Type**: `Function`
+* **Default**: `redColorScaleGenerator`
+* **Description**: Function to generate custom color scale for the table heatmap.
 
-## sorters
+### tableOptions
 
-* Type: `Function or Object`
-* Default: `{}`
+* **Type**: `Object`
+* **Default**: `{}`
+* **Description**: Additional options for table rendering, such as `clickCallback` for handling clicks on cells.
 
-accessed or called with an attribute name and can return a function which can be used as an argument to array.sort for output purposes.
+## Filtering and Sorting Props
 
-## derivedAttributes
+### valueFilter
 
-* Type: `Object`
-* Default: `{}`
+* **Type**: `Object`
+* **Default**: `{}`
+* **Description**: Filtering configuration for attribute values. Keys are attribute names and values are objects of attribute value-boolean pairs which denote records to include or exclude.
 
-defines derived attributes
+### sorters
 
-## rowOrder
+* **Type**: `Function` or `Object`
+* **Default**: `{}`
+* **Description**: Functions used to sort attribute values for display. Can be called with an attribute name to return a sorting function.
 
-* Type: `String`
-* Default: `key_a_to_z`
+### derivedAttributes
 
-the order in which row data is provided to the renderer, must be one of `"key_a_to_z"`, `"value_a_to_z"`, `"value_z_to_a"`, ordering by value orders by row total
+* **Type**: `Function` or `Object`
+* **Default**: `{}`
+* **Description**: Defines derived attributes to calculate from existing data.
 
-## colOrder
+### rowOrder
 
-* Type: `String`
-* Default: `key_a_to_z`
+* **Type**: `String`
+* **Default**: `'key_a_to_z'`
+* **Description**: Order in which row data is provided to the renderer. Options are `'key_a_to_z'`, `'value_a_to_z'`, or `'value_z_to_a'`.
 
-the order in which column data is provided to the renderer, must be one of `"key_a_to_z"`, `"value_a_to_z"`, `"value_z_to_a"`, ordering by value orders by column total
+### colOrder
 
-## tableMaxWidth
+* **Type**: `String`
+* **Default**: `'key_a_to_z'`
+* **Description**: Order in which column data is provided to the renderer. Same options as `rowOrder`.
 
-* Type: `Number`
-* Default: `0`
+## Localization Props
 
-value of max-width in table style
+### locale
 
-## hiddenAttributes
+* **Type**: `String`
+* **Default**: `'en'`
+* **Description**: Locale code for internationalization.
 
-* Type: `Array`
-* Default: `[]`
+### languagePack
 
-contains attribute names to omit from the UI
+* **Type**: `Object`
+* **Default**: Imported locales
+* **Description**: Object containing translations and formatting options for different languages.
 
-## hiddenFromAggregators
+## UI Control Props (PivottableUi specific)
 
-* Type: `Array`
-* Default: `[]`
+### hiddenAttributes
 
-contains attribute names to omit from the aggregator arguments dropdowns
+* **Type**: `Array`
+* **Default**: `[]`
+* **Description**: Attribute names to completely omit from the UI.
 
-## hiddenFromDragDrop
+### hiddenFromAggregators
 
-* Type: `Array`
-* Default: `[]`
+* **Type**: `Array`
+* **Default**: `[]`
+* **Description**: Attribute names to exclude from the aggregator argument dropdowns.
 
-contains attribute names to omit from the aggregator arguments dropdowns
+### hiddenFromDragDrop
 
-## sortonlyFromDragDrop
+* **Type**: `Array`
+* **Default**: `[]`
+* **Description**: Attribute names to exclude from the drag and drop portion of the UI.
 
-* Type: `Array`
-* Default: `[]`
+### restrictedFromDragDrop
 
-contains attribute names to sort from the drag'n'drop of the UI
+* **Type**: `Array`
+* **Default**: `[]`
+* **Description**: Attribute names that can be viewed but not moved in the drag and drop interface.
 
-## disabledFromDragDrop
+### menuLimit
 
-* Type: `Array`
-* Default: `[]`
-contains attribute names to disable from the drag'n'drop portion of the UI
+* **Type**: `Number`
+* **Default**: `500`
+* **Description**: Maximum number of values to list in the filter menu when double-clicking an attribute.
 
-## menuLimit
+### hideFilterBoxOfUnusedAttributes
 
-* Type: `Number`
-* Default: `500`
+* **Type**: `Boolean`
+* **Default**: `false`
+* **Description**: Whether to hide filter boxes for attributes that are not currently being used in the pivot table.
 
-maximum number of values to list in the double-click menu
+## Removed Props
 
-## tableColorScaleGenerator
+The following props have been removed or changed from the current version:
 
-* Type: `Function`
-* Default: `undefined`
+### locales
 
-generate custom color render for `Table Heatmap`
+* **Type**: `Object`
+* **Previously Default**: Imported `locales`
+* **Status**:  Renamed to languagePack
+* **Description**: Previously used to provide translations and formatting options for different languages.
+
+### rowTotal
+
+* **Type**: `Boolean`
+* **Previously Default**: `true`
+* **Status**: Renamed to `showRowTotal`
+* **Description**: Previously used to determine whether to show totals for rows.
+
+### colTotal
+
+* **Type**: `Boolean`
+* **Previously Default**: `true`
+* **Status**: Renamed to `showColTotal`
+* **Description**: Previously used to determine whether to show totals for columns.
+
+### sortonlyFromDragDrop
+
+* **Type**: `Array`
+* **Previously Default**: `[]`
+* **Status**: Replaced by `restrictedFromDragDrop`
+* **Description**: Previously contained attribute names to sort from the drag'n'drop of the UI.
+
+### disabledFromDragDrop
+
+* **Type**: `Array`
+* **Previously Default**: `[]`
+* **Status**: Completely removed
+* **Description**: Previously contained attribute names to disable from the drag'n'drop portion of the UI.
+
+### pivotModel
+
+* **Type**: `Object`
+* **Previously Default**: `{}`
+* **Status**: Completely removed
+* **Description**: External model to control the pivot table state.
