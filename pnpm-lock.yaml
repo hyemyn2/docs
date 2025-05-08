@@ -12,8 +12,8 @@ importers:
         specifier: ^1.6.3
         version: 1.6.3(@algolia/client-search@5.24.0)(postcss@8.5.3)(search-insights@2.17.3)(sortablejs@1.15.6)
       vue-pivottable:
-        specifier: ^1.0.3
-        version: 1.0.3(sortablejs@1.15.6)(vue@3.5.13)
+        specifier: ^1.0.4
+        version: 1.0.4(sortablejs@1.15.6)(vue@3.5.13)
 
 packages:
 
@@ -768,8 +768,8 @@ packages:
       sortablejs: ^1.14.0
       vue: ^3.2.2
 
-  vue-pivottable@1.0.3:
-    resolution: {integrity: sha512-0gBrxoCHEAg0wEMaw9lAi+cVA3IUl5zv7L5y3LgY49DYQeNDjTH8iINOmxJdtoQijMbzOyios+9cYn6EDZ0Nrg==}
+  vue-pivottable@1.0.4:
+    resolution: {integrity: sha512-AOmRl6e01jH+3qWTWV3/P9DP0HOYbvqt7ShWoVzqtaPsJwvVeiY9GvKlhnUBPVgh25e4PQeqnKtNxmtZxsAUxw==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -1564,7 +1564,7 @@ snapshots:
       sortablejs: 1.15.6
       vue: 3.5.13
 
-  vue-pivottable@1.0.3(sortablejs@1.15.6)(vue@3.5.13):
+  vue-pivottable@1.0.4(sortablejs@1.15.6)(vue@3.5.13):
     dependencies:
       vue: 3.5.13
       vue-draggable-next: 2.2.1(sortablejs@1.15.6)(vue@3.5.13)
