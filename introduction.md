@@ -24,7 +24,7 @@ outline: deep
 ## Inspired
 
 - [plotly/react-pivottable](https://github.com/plotly/react-pivottable) - React-based pivot table library
-- [David-Desmaisons/vue-plotly](https://github.com/David-Desmaisons/vue-plotly) - vue wrapper for plotly.js
+- [clalarco/vue3-plotly](https://github.com/clalarco/vue3-plotly) - vue wrapper for plotly.js
 
 ## License
 

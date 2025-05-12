@@ -59,13 +59,13 @@ import "vue-pivottable/dist/vue-pivottable.css";
 > Without this CSS, the pivot table may not be displayed correctly.
 
 <iframe
-  src="https://stackblitz.com/edit/vitejs-vite-iyiexnrn?ctl=1&embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  src="https://stackblitz.com/edit/vitejs-vite-iyiexnrn?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
   width="100%"
   height="500"
   style="border:0; border-radius: 4px; overflow:hidden;"
   title="Vite Vue3 Sample"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
 ></iframe>
 
 ### Vue Pivottable UI
@@ -93,13 +93,13 @@ import "vue-pivottable/dist/vue-pivottable.css";
 ```
 
 <iframe
-  src="https://stackblitz.com/edit/vitejs-vite-dviwcxsq?ctl=1&embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  src="https://stackblitz.com/edit/vitejs-vite-dviwcxsq?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
   width="100%"
   height="500"
   style="border:0; border-radius: 4px; overflow:hidden;"
   title="Vite Vue3 Sample"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
 ></iframe>
 
 ### Vue Pivottable UI with Plotly Renderer

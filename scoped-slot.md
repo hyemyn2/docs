@@ -8,7 +8,9 @@ Both slot and scoped slots are supported, but the use of the v-slot directive is
 
 ## pvtAttr
 
-```vue
+If you want to customize the label of each pivot attribute, you can use the `pvtAttr` slot.
+
+```vue{10-15}
 <template>
   <VuePivottableUi
     :data="[
@@ -18,9 +20,11 @@ Both slot and scoped slots are supported, but the use of the v-slot directive is
     :rows="['color']"
     :cols="['shape']"
   >
-    <template #pvtAttr="{ name }">
-      <i class="fas fa-filter"></i>
-      {{ capitalize(name) }}
+    <template #pvtAttr="{ attrName }">
+      <i class="fas fa-bars"></i>
+      <span style="margin-left: 5px">
+        {{ capitalize(attrName) }}
+      </span>
     </template>
   </VuePivottableUi>
 </template>
@@ -36,13 +40,13 @@ function capitalize(str) {
 ```
 
 <iframe
-  src="https://stackblitz.com/edit/vitejs-vite-uvgnlrhv?ctl=1&embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  src="https://stackblitz.com/edit/vitejs-vite-uvgnlrhv?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
   width="100%"
   height="500"
   style="border:0; border-radius: 4px; overflow:hidden;"
   title="Vite Vue3 Sample"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
 ></iframe>
 
 ## output

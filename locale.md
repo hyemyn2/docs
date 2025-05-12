@@ -96,11 +96,11 @@ const locale = "en"; // or 'ko';
 ## Example
 
 <iframe
-  src="https://stackblitz.com/edit/vitejs-vite-aefzv3q9?ctl=1&embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  src="https://stackblitz.com/edit/vitejs-vite-aefzv3q9?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
   width="100%"
   height="500"
   style="border:0; border-radius: 4px; overflow:hidden;"
   title="Vue Pivottable Example: Locale"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
 ></iframe>
