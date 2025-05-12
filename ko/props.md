@@ -1,155 +1,224 @@
 # Props
 
-## data
+## 핵심 데이터 Props
 
-* Type: `none`
-* Default: `none`
-* **Required**
+### data
 
-data to be summarized
+* **타입**: `Array`, `Object`, 또는 `Function`
+* **기본값**: 없음
+* **필수**: 예
+* **설명**: 피벗 테이블에 요약될 데이터. 객체 배열, 배열의 배열, 또는 데이터를 콜백하는 함수가 될 수 있습니다.
 
-## vals
+### vals
 
-* Type: `Array`
-* Default: `[]`
+* **타입**: `Array`
+* **기본값**: `[]`
+* **설명**: 집계 함수에 사용되는 속성 이름들. 피벗 테이블에서 계산될 값을 정의합니다.
 
-attribute names used as arguments to aggregator (gets passed to aggregator generating function)
+### cols
 
-## cols
+* **타입**: `Array`
+* **기본값**: `[]`
+* **설명**: 피벗 테이블의 열 영역에 미리 채울 속성 이름들.
 
-* Type: `Array`
-* Default: `[]`
+### rows
 
-attribute names to prepopulate in cols area
+* **타입**: `Array`
+* **기본값**: `[]`
+* **설명**: 피벗 테이블의 행 영역에 미리 채울 속성 이름들.
 
-## rows
+## 화면 제어 Props
 
-* Type: `Array`
-* Default: `[]`
+### showRowTotal
 
-attribute names to prepopulate in row area
+* **타입**: `Boolean`
+* **기본값**: `true`
+* **설명**: 행 합계를 표시할지 여부를 결정합니다.
 
-## rowTotal
+### showColTotal
 
-* Type: `Boolean`
-* Default: `true`
+* **타입**: `Boolean`
+* **기본값**: `true`
+* **설명**: 열 합계를 표시할지 여부를 결정합니다.
 
-show total of rows
+### tableMaxWidth
 
-## colTotal
+* **타입**: `Number`
+* **기본값**: `0`
+* **설명**: 피벗 테이블의 최대 너비를 픽셀 단위로 설정합니다. 0 값은 최대 너비가 없음을 의미합니다.
 
-* Type: `Boolean`
-* Default: `true`
+## 집계 Props
 
-show total of cols
+### aggregators
 
-## aggregators
+* **타입**: `Object`
+* **기본값**: utilities에서 가져옴
+* **설명**: 드롭다운에서 사용 가능한 집계 함수에 대한 생성자 함수 사전 (예: Sum, Count, Average).
 
-* Type: `Object`
-* Default: `aggregators` from `Utilities`
+### aggregatorName
 
-dictionary of generators for aggregation functions in dropdown (see [original PivotTable.js documentation](https://github.com/nicolaskruchten/pivottable/wiki/Aggregators))
+* **타입**: `String`
+* **기본값**: `'Count'`
+* **설명**: 계산에 사용할 집계자를 지정하는 `aggregators` 객체의 키.
 
-## aggregatorName
+## 렌더링 Props
 
-* Type: `String`
-* Default: `Count`
+### renderers
 
-key to `aggregators` object specifying the aggregator to use for computations
+* **타입**: `Object`
+* **기본값**: `{}`
+* **설명**: 피벗 테이블을 표시하는 데 사용할 수 있는 렌더러 컴포넌트가 포함된 객체.
 
-## rendererName
+### rendererName
 
-* Type: `String`
-* Default : `Table`
+* **타입**: `String`
+* **기본값**: `'Table'`
+* **설명**: 표시에 사용할 렌더러를 지정하는 `renderers` 객체의 키.
 
-key to renderers object specifying the renderer to use
+### heatmapMode
 
-## valueFilter
+* **타입**: `String`
+* **기본값**: `undefined`
+* **설명**: 값에 히트맵 색상을 적용하는 방법을 지정합니다. 옵션에는 `'full'`, `'row'`, 또는 `'col'`이 있습니다.
 
-* Type: `Object`
-* Default: `{}`
+### tableColorScaleGenerator
 
-object whose keys are attribute names and values are objects of attribute value-boolean pairs which denote records to include or exclude from computation and rendering; used to prepopulate the filter menus that appear on double-click
+* **타입**: `Function`
+* **기본값**: `redColorScaleGenerator`
+* **설명**: 테이블 히트맵의 사용자 정의 색상 스케일을 생성하는 함수.
 
-## sorters
+### tableOptions
 
-* Type: `Function or Object`
-* Default: `{}`
+* **타입**: `Object`
+* **기본값**: `{}`
+* **설명**: 셀 클릭 처리를 위한 `clickCallback`과 같은 테이블 렌더링에 대한 추가 옵션.
 
-accessed or called with an attribute name and can return a function which can be used as an argument to array.sort for output purposes.
+## 필터링 및 정렬 Props
 
-## derivedAttributes
+### valueFilter
 
-* Type: `Object`
-* Default: `{}`
+* **타입**: `Object`
+* **기본값**: `{}`
+* **설명**: 속성 값에 대한 필터링 구성. 키는 속성 이름이고 값은 포함하거나 제외할 레코드를 나타내는 속성 값-불리언 쌍의 객체입니다.
 
-defines derived attributes
+### sorters
 
-## rowOrder
+* **타입**: `Function` 또는 `Object`
+* **기본값**: `{}`
+* **설명**: 표시를 위해 속성 값을 정렬하는 데 사용되는 함수. 속성 이름으로 호출하여 정렬 함수를 반환할 수 있습니다.
 
-* Type: `String`
-* Default: `key_a_to_z`
+### derivedAttributes
 
-the order in which row data is provided to the renderer, must be one of `"key_a_to_z"`, `"value_a_to_z"`, `"value_z_to_a"`, ordering by value orders by row total
+* **타입**: `Function` 또는 `Object`
+* **기본값**: `{}`
+* **설명**: 기존 데이터에서 계산할 파생 속성을 정의합니다.
 
-## colOrder
+### rowOrder
 
-* Type: `String`
-* Default: `key_a_to_z`
+* **타입**: `String`
+* **기본값**: `'key_a_to_z'`
+* **설명**: 행 데이터가 렌더러에 제공되는 순서. 옵션은 `'key_a_to_z'`, `'value_a_to_z'`, 또는 `'value_z_to_a'`입니다.
 
-the order in which column data is provided to the renderer, must be one of `"key_a_to_z"`, `"value_a_to_z"`, `"value_z_to_a"`, ordering by value orders by column total
+### colOrder
 
-## tableMaxWidth
+* **타입**: `String`
+* **기본값**: `'key_a_to_z'`
+* **설명**: 열 데이터가 렌더러에 제공되는 순서. `rowOrder`와 동일한 옵션을 가집니다.
 
-* Type: `Number`
-* Default: `0`
+## 현지화 Props
 
-value of max-width in table style
+### locale
 
-## hiddenAttributes
+* **타입**: `String`
+* **기본값**: `'en'`
+* **설명**: 국제화를 위한 로케일 코드.
 
-* Type: `Array`
-* Default: `[]`
+### languagePack
 
-contains attribute names to omit from the UI
+* **타입**: `Object`
+* **기본값**: 가져온 locales
+* **설명**: 다양한 언어에 대한 번역 및 형식 지정 옵션이 포함된 객체.
 
-## hiddenFromAggregators
+## UI 제어 Props (PivottableUi 전용)
 
-* Type: `Array`
-* Default: `[]`
+### hiddenAttributes
 
-contains attribute names to omit from the aggregator arguments dropdowns
+* **타입**: `Array`
+* **기본값**: `[]`
+* **설명**: UI에서 완전히 생략할 속성 이름.
 
-## hiddenFromDragDrop
+### hiddenFromAggregators
 
-* Type: `Array`
-* Default: `[]`
+* **타입**: `Array`
+* **기본값**: `[]`
+* **설명**: 집계자 인수 드롭다운에서 제외할 속성 이름.
 
-contains attribute names to omit from the aggregator arguments dropdowns
+### hiddenFromDragDrop
 
-## sortonlyFromDragDrop
+* **타입**: `Array`
+* **기본값**: `[]`
+* **설명**: UI의 드래그 앤 드롭 부분에서 제외할 속성 이름.
 
-* Type: `Array`
-* Default: `[]`
+### restrictedFromDragDrop
 
-contains attribute names to sort from the drag'n'drop of the UI
+* **타입**: `Array`
+* **기본값**: `[]`
+* **설명**: 드래그 앤 드롭 인터페이스에서 볼 수는 있지만 이동할 수 없는 속성 이름.
 
-## disabledFromDragDrop
+### menuLimit
 
-* Type: `Array`
-* Default: `[]`
-contains attribute names to disable from the drag'n'drop portion of the UI
+* **타입**: `Number`
+* **기본값**: `500`
+* **설명**: 속성을 더블 클릭할 때 필터 메뉴에 나열할 최대 값 수.
 
-## menuLimit
+### hideFilterBoxOfUnusedAttributes
 
-* Type: `Number`
-* Default: `500`
+* **타입**: `Boolean`
+* **기본값**: `false`
+* **설명**: 현재 피벗 테이블에서 사용되지 않는 속성에 대한 필터 박스를 숨길지 여부.
 
-maximum number of values to list in the double-click menu
+## 제거된 Props
 
-## tableColorScaleGenerator
+다음 props는 현재 버전에서 제거되었거나 변경되었습니다:
 
-* Type: `Function`
-* Default: `undefined`
+### locales
 
-generate custom color render for `Table Heatmap`
+* **타입**: `Object`
+* **이전 기본값**: 가져온 `locales`
+* **상태**: `languagePack`으로 이름 변경됨
+* **설명**: 이전에는 다양한 언어에 대한 번역 및 형식 지정 옵션을 제공하는 데 사용되었습니다.
+
+### rowTotal
+
+* **타입**: `Boolean`
+* **이전 기본값**: `true`
+* **상태**: `showRowTotal`으로 이름 변경됨
+* **설명**: 이전에는 행 합계를 표시할지 여부를 결정하는 데 사용되었습니다.
+
+### colTotal
+
+* **타입**: `Boolean`
+* **이전 기본값**: `true`
+* **상태**: `showColTotal`으로 이름 변경됨
+* **설명**: 이전에는 열 합계를 표시할지 여부를 결정하는 데 사용되었습니다.
+
+### sortonlyFromDragDrop
+
+* **타입**: `Array`
+* **이전 기본값**: `[]`
+* **상태**: `restrictedFromDragDrop`로 대체됨
+* **설명**: 이전에는 UI의 드래그 앤 드롭에서 정렬할 속성 이름을 포함했습니다.
+
+### disabledFromDragDrop
+
+* **타입**: `Array`
+* **이전 기본값**: `[]`
+* **상태**: 완전히 제거됨
+* **설명**: 이전에는 UI의 드래그 앤 드롭 부분에서 비활성화할 속성 이름을 포함했습니다.
+
+### pivotModel
+
+* **타입**: `Object`
+* **이전 기본값**: `{}`
+* **상태**: 완전히 제거됨
+* **설명**: 피벗 테이블 상태를 제어하는 외부 모델.
