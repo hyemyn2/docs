@@ -1,14 +1,14 @@
-# 슬롯
+# 插槽
 
-vue-pivottable-ui를 커스터마이징하기 위한 옵션입니다.
+用于自定义vue-pivottable-ui的选项。
 
 :::warning
-슬롯과 스코프드 슬롯 모두 지원되지만, v-slot 디렉티브 사용을 권장합니다.
+支持插槽和作用域插槽，但建议使用v-slot指令。
 :::
 
 ## rendererCell
 
-렌더러를 선택하는 선택 UI를 교체하려면 `rendererCell` 슬롯을 사용하세요.
+如果你想替换选择渲染器的选择UI，请使用`rendererCell`插槽。
 
 ```vue{10-12}
 <template>
@@ -21,7 +21,7 @@ vue-pivottable-ui를 커스터마이징하기 위한 옵션입니다.
     :cols="['shape']"
   >
     <template v-slot:rendererCell>
-      <i class="fas fa-table" style="margin-right: 0.25rem"></i>테이블
+      <i class="fas fa-table" style="margin-right: 0.25rem"></i>表格
     </template>
   </VuePivottableUi>
 </template>
@@ -49,7 +49,7 @@ export default {
 
 ## aggregatorCell
 
-집계자를 선택하는 선택 UI를 교체하려면 이것을 사용할 수 있습니다.
+如果你想替换选择聚合器的选择UI，可以使用这个。
 
 ```vue{10-12}
 <template>
@@ -62,7 +62,7 @@ export default {
     :cols="['shape']"
   >
     <template v-slot:aggregatorCell>
-      <i class="fas fa-calculator" style="margin-right: 0.25rem"></i>개수
+      <i class="fas fa-calculator" style="margin-right: 0.25rem"></i>计数
     </template>
   </VuePivottableUi>
 </template>
@@ -85,10 +85,10 @@ import 'vue-pivottable/dist/vue-pivottable.css';
 
 ## colGroup
 
-`td.pvtAxisContainer`의 너비를 고정하거나 드래그된 필드가 넘치지 않도록 하려면 이 슬롯을 사용할 수 있습니다.
+如果你想固定`td.pvtAxisContainer`的宽度，或防止拖拽的字段溢出，可以使用这个插槽。
 
 ::: tip
-`td.pvtAxisContainer` 요소는 **overflow-x: auto** CSS 속성을 가지므로, 내용이 넘치면 수평 스크롤이 나타납니다.
+`td.pvtAxisContainer`元素具有**overflow-x: auto**的CSS属性，因此如果内容溢出，将显示水平滚动。
 :::
 
 ```vue{10-12}
@@ -106,7 +106,7 @@ import 'vue-pivottable/dist/vue-pivottable.css';
     </template>
   </VuePivottableUi>
   <div style="margin: 5px;">
-    <label>colGroup 고정 너비: </label>
+    <label>colGroup固定宽度: </label>
     <input v-model="colGroupFixedWidth" type="number" />
   </div>
 </template>
@@ -132,7 +132,7 @@ const colGroupFixedWidth = ref(250);
 
 ## output
 
-`td.pvtOutput` 영역을 교체하는 슬롯입니다.
+这是一个替换`td.pvtOutput`中区域的插槽。
 
 ```vue{10-12}
 <template>
@@ -145,12 +145,12 @@ const colGroupFixedWidth = ref(250);
     :cols="['shape']"
   >
     <template v-slot:output v-if="!loaded">
-      <div style="padding: 10px">로딩 중...</div>
+      <div style="padding: 10px">加载中...</div>
     </template>
   </VuePivottableUi>
   <button style="margin-top: 5px" :disabled="!loaded" @click="reload">
     <i class="fas fa-redo mr-25"></i>
-    다시 실행
+    重新执行
   </button>
 </template>
 

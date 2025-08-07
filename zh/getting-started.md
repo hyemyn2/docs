@@ -2,14 +2,14 @@
 outline: deep
 ---
 
-# 시작하기
+# 快速开始
 
-## 설치
+## 安装
 
 ### NPM
 
 ```bash
-# 프로젝트에 설치
+# 安装到项目
 npm install vue-pivottable
 ```
 
@@ -19,23 +19,23 @@ npm install vue-pivottable
 pnpm install vue-pivottable
 ```
 
-### 직접 다운로드 / CDN
+### 直接下载 / CDN
 
 📦 **unpkg** : <https://unpkg.com/vue-pivottable@1.0.0-alpha.3/dist/vue-pivottable.umd.js><br/>
 🌏 **jsDelivr** : <https://cdn.jsdelivr.net/npm/vue-pivottable@1.0.0-alpha.3/dist/vue-pivottable.umd.min.js>
 
 ```html
-<!-- Vue 다음에 vue-pivottable 포함 -->
+<!-- 在 Vue 之后引入 vue-pivottable -->
 <script src="/path/to/vue.js"></script>
 <script src="/path/to/vue-pivottable.umd.min.js"></script>
 ```
 
-## 빠른 시작
+## 快速开始
 
 ### Vue Pivottable
 
-`VuePivottable`은 정적 피벗 테이블을 렌더링하는 간단한 컴포넌트입니다.  
-지정된 `rows`와 `cols` 옵션에 따라 `data`를 표시합니다.
+`VuePivottable` 是一个简单的组件，用于渲染静态透视表。  
+它根据指定的 `rows` 和 `cols` 选项显示 `data`。
 
 ```vue
 <template>
@@ -55,23 +55,23 @@ import "vue-pivottable/dist/vue-pivottable.css";
 </script>
 ```
 
-> 🔴 기본 스타일을 적용하려면 `vue-pivottable.css` 파일을 가져와야 합니다.
-> 이 CSS가 없으면 피벗 테이블이 올바르게 표시되지 않을 수 있습니다.
+> 🔴 需要导入 `vue-pivottable.css` 文件以应用默认样式。
+> 没有此 CSS，透视表可能无法正确显示。
 
 <iframe
-  src="https://stackblitz.com/edit/vitejs-vite-iyiexnrn?ctl=1&embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  src="https://stackblitz.com/edit/vitejs-vite-iyiexnrn?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
   width="100%"
   height="500"
   style="border:0; border-radius: 4px; overflow:hidden;"
   title="Vite Vue3 Sample"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
 ></iframe>
 
 ### Vue Pivottable UI
 
-`VuePivottableUi`는 사용자가 동적으로 `rows`와 `cols`를 커스터마이징할 수 있는 사용자 인터페이스를 제공하여 기능을 확장합니다.
-사용자는 영역 간에 속성을 드래그하거나 데이터에 필터를 적용하여 피벗 테이블이 표시되는 방식을 조정할 수 있습니다.
+`VuePivottableUi` 通过提供用户界面来扩展功能，允许用户动态自定义 `rows` 和 `cols`。
+用户可以在区域间拖拽属性，对数据应用过滤器，以调整透视表的显示方式。
 
 ```vue
 <template>
@@ -92,16 +92,16 @@ import "vue-pivottable/dist/vue-pivottable.css";
 ```
 
 <iframe
-  src="https://stackblitz.com/edit/vitejs-vite-dviwcxsq?ctl=1&embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  src="https://stackblitz.com/edit/vitejs-vite-dviwcxsq?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
   width="100%"
   height="500"
   style="border:0; border-radius: 4px; overflow:hidden;"
   title="Vite Vue3 Sample"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
 ></iframe>
 
-### Plotly 렌더러를 사용한 Vue Pivottable UI
+### 使用 Plotly 渲染器的 Vue Pivottable UI
 
-Plotly 렌더러는 기본적으로 핵심 `vue-pivottable` 라이브러리에 포함되지 않지만, 별도로 설치하여 사용할 수 있습니다.
-자세한 내용은 https://vue-pivottable.vercel.app/renderer.html 의 렌더러 섹션을 확인하세요.
+Plotly 渲染器默认不包含在核心 `vue-pivottable` 库中，但可以单独安装和使用。
+请查看 https://vue-pivottable.vercel.app/renderer.html 中的渲染器部分了解详情。

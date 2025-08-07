@@ -1,14 +1,14 @@
-# 슬롯
+# スロット
 
-vue-pivottable-ui를 커스터마이징하기 위한 옵션입니다.
+vue-pivottable-uiをカスタマイズするためのオプションです。
 
 :::warning
-슬롯과 스코프드 슬롯 모두 지원되지만, v-slot 디렉티브 사용을 권장합니다.
+スロットとスコープドスロットの両方がサポートされていますが、v-slotディレクティブの使用をお勧めします。
 :::
 
 ## rendererCell
 
-렌더러를 선택하는 선택 UI를 교체하려면 `rendererCell` 슬롯을 사용하세요.
+レンダラーを選択する選択UIを置き換えるには、`rendererCell`スロットを使用してください。
 
 ```vue{10-12}
 <template>
@@ -21,7 +21,7 @@ vue-pivottable-ui를 커스터마이징하기 위한 옵션입니다.
     :cols="['shape']"
   >
     <template v-slot:rendererCell>
-      <i class="fas fa-table" style="margin-right: 0.25rem"></i>테이블
+      <i class="fas fa-table" style="margin-right: 0.25rem"></i>テーブル
     </template>
   </VuePivottableUi>
 </template>
@@ -49,7 +49,7 @@ export default {
 
 ## aggregatorCell
 
-집계자를 선택하는 선택 UI를 교체하려면 이것을 사용할 수 있습니다.
+アグリゲータを選択する選択UIを置き換えるには、これを使用できます。
 
 ```vue{10-12}
 <template>
@@ -62,7 +62,7 @@ export default {
     :cols="['shape']"
   >
     <template v-slot:aggregatorCell>
-      <i class="fas fa-calculator" style="margin-right: 0.25rem"></i>개수
+      <i class="fas fa-calculator" style="margin-right: 0.25rem"></i>カウント
     </template>
   </VuePivottableUi>
 </template>
@@ -85,10 +85,10 @@ import 'vue-pivottable/dist/vue-pivottable.css';
 
 ## colGroup
 
-`td.pvtAxisContainer`의 너비를 고정하거나 드래그된 필드가 넘치지 않도록 하려면 이 슬롯을 사용할 수 있습니다.
+`td.pvtAxisContainer`の幅を固定したり、ドラッグされたフィールドがオーバーフローしないようにしたい場合は、このスロットを使用できます。
 
 ::: tip
-`td.pvtAxisContainer` 요소는 **overflow-x: auto** CSS 속성을 가지므로, 내용이 넘치면 수평 스크롤이 나타납니다.
+`td.pvtAxisContainer`要素は**overflow-x: auto**のCSSプロパティを持っているため、コンテンツがオーバーフローした場合は水平スクロールが表示されます。
 :::
 
 ```vue{10-12}
@@ -106,7 +106,7 @@ import 'vue-pivottable/dist/vue-pivottable.css';
     </template>
   </VuePivottableUi>
   <div style="margin: 5px;">
-    <label>colGroup 고정 너비: </label>
+    <label>colGroup固定幅: </label>
     <input v-model="colGroupFixedWidth" type="number" />
   </div>
 </template>
@@ -132,7 +132,7 @@ const colGroupFixedWidth = ref(250);
 
 ## output
 
-`td.pvtOutput` 영역을 교체하는 슬롯입니다.
+`td.pvtOutput`内の領域を置き換えるスロットです。
 
 ```vue{10-12}
 <template>
@@ -145,12 +145,12 @@ const colGroupFixedWidth = ref(250);
     :cols="['shape']"
   >
     <template v-slot:output v-if="!loaded">
-      <div style="padding: 10px">로딩 중...</div>
+      <div style="padding: 10px">読み込み中...</div>
     </template>
   </VuePivottableUi>
   <button style="margin-top: 5px" :disabled="!loaded" @click="reload">
     <i class="fas fa-redo mr-25"></i>
-    다시 실행
+    再実行
   </button>
 </template>
 

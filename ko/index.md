@@ -2,18 +2,18 @@
 layout: home
 hero:
   name: "Vue Pivottable"
-  text: "The official guide for vue-pivottable"
-  tagline: "Flexible and easy-to-use pivot table component for Vue 3"
+  text: "vue-pivottable 공식 가이드"
+  tagline: "Vue 3용 유연하고 사용하기 쉬운 피벗 테이블 컴포넌트"
   actions:
     - theme: brand
       text: 시작하기
-      link: /getting-started
+      link: /ko/getting-started
     - theme: alt
       text: 이전 버전 (Vue 2)
       link: https://seungwoo321.github.io/vue-pivottable/
 ---
 
-# Quick Start
+# 빠른 시작
 
 ```vue
 <template>
