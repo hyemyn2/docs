@@ -1,37 +1,42 @@
-# Slot
+# スロット
 
-Options for customizing vue-pivottable-ui.
+vue-pivottable-uiをカスタマイズするためのオプションです。
 
 :::warning
-Both slot and scoped slots are supported, but the use of the v-slot directive is recommended.
+スロットとスコープドスロットの両方がサポートされていますが、v-slotディレクティブの使用をお勧めします。
 :::
 
 ## rendererCell
 
-If you want to replace the selection UI that selects the renderer, use the `rendererCell` slot.
+レンダラーを選択する選択UIを置き換えるには、`rendererCell`スロットを使用してください。
 
 ```vue{10-12}
 <template>
   <VuePivottableUi
     :data="[
       { color: 'blue', shape: 'circle' },
-      { color: 'red', shape: 'triangle' }
+      { color: 'red', shape: 'triangle' },
     ]"
     :rows="['color']"
     :cols="['shape']"
   >
-
     <template v-slot:rendererCell>
-      <i class="fas fa-table" style="margin-right: 0.25rem"></i>Table
+      <i class="fas fa-table" style="margin-right: 0.25rem"></i>テーブル
     </template>
   </VuePivottableUi>
 </template>
 
-<script setup>
-import { VuePivottableUi } from 'vue-pivottable'
-import 'vue-pivottable/dist/vue-pivottable.css'
+<script>
+import { VuePivottableUi } from "vue-pivottable";
+import "vue-pivottable/dist/vue-pivottable.css";
+export default {
+  components: {
+    VuePivottableUi,
+  },
+};
 </script>
 ```
+
 <iframe
   src="https://stackblitz.com/edit/vitejs-vite-ub7qwho7?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
   width="100%"
@@ -44,7 +49,7 @@ import 'vue-pivottable/dist/vue-pivottable.css'
 
 ## aggregatorCell
 
-If you want to replace the select UI that selects the aggregator you can use it.
+アグリゲータを選択する選択UIを置き換えるには、これを使用できます。
 
 ```vue{10-12}
 <template>
@@ -56,8 +61,8 @@ If you want to replace the select UI that selects the aggregator you can use it.
     :rows="['color']"
     :cols="['shape']"
   >
-    <template #aggregatorCell>
-      <i class="fas fa-calculator" style="margin-right: 0.25rem"></i>Count
+    <template v-slot:aggregatorCell>
+      <i class="fas fa-calculator" style="margin-right: 0.25rem"></i>カウント
     </template>
   </VuePivottableUi>
 </template>
@@ -80,10 +85,10 @@ import 'vue-pivottable/dist/vue-pivottable.css';
 
 ## colGroup
 
-You can use this slot if you want to fix the width of `td.pvtAxisContainer`, or to prevent dragged fields from overflowing it.
+`td.pvtAxisContainer`の幅を固定したり、ドラッグされたフィールドがオーバーフローしないようにしたい場合は、このスロットを使用できます。
 
 ::: tip
-The `td.pvtAxisContainer` element has the CSS property **overflow-x: auto**, so horizontal scrolling will appear if the content overflows.
+`td.pvtAxisContainer`要素は**overflow-x: auto**のCSSプロパティを持っているため、コンテンツがオーバーフローした場合は水平スクロールが表示されます。
 :::
 
 ```vue{10-12}
@@ -101,8 +106,8 @@ The `td.pvtAxisContainer` element has the CSS property **overflow-x: auto**, so 
     </template>
   </VuePivottableUi>
   <div style="margin: 5px;">
-    <label>colGroupFirstWidth: </label>
-    <input v-model="colGroupFirstWidth" type="number" />
+    <label>colGroup固定幅: </label>
+    <input v-model="colGroupFixedWidth" type="number" />
   </div>
 </template>
 
@@ -113,7 +118,6 @@ import "vue-pivottable/dist/vue-pivottable.css";
 
 const colGroupFixedWidth = ref(250);
 </script>
-
 ```
 
 <iframe
@@ -128,7 +132,7 @@ const colGroupFixedWidth = ref(250);
 
 ## output
 
-This is a slot that replaces the area in `td.pvtOutput`.
+`td.pvtOutput`内の領域を置き換えるスロットです。
 
 ```vue{10-12}
 <template>
@@ -141,12 +145,12 @@ This is a slot that replaces the area in `td.pvtOutput`.
     :cols="['shape']"
   >
     <template v-slot:output v-if="!loaded">
-      <div style="padding: 10px">loading...</div>
+      <div style="padding: 10px">読み込み中...</div>
     </template>
   </VuePivottableUi>
   <button style="margin-top: 5px" :disabled="!loaded" @click="reload">
     <i class="fas fa-redo mr-25"></i>
-    redo
+    再実行
   </button>
 </template>
 

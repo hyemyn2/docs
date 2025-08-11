@@ -7,25 +7,37 @@
 * **타입**: `Array`, `Object`, 또는 `Function`
 * **기본값**: 없음
 * **필수**: 예
+* **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
 * **설명**: 피벗 테이블에 요약될 데이터. 객체 배열, 배열의 배열, 또는 데이터를 콜백하는 함수가 될 수 있습니다.
 
 ### vals
 
-* **타입**: `Array`
+* **타입**: `Array<string>`
 * **기본값**: `[]`
+* **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
 * **설명**: 집계 함수에 사용되는 속성 이름들. 피벗 테이블에서 계산될 값을 정의합니다.
 
 ### cols
 
-* **타입**: `Array`
+* **타입**: `Array<string>`
 * **기본값**: `[]`
+* **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
 * **설명**: 피벗 테이블의 열 영역에 미리 채울 속성 이름들.
 
 ### rows
 
-* **타입**: `Array`
+* **타입**: `Array<string>`
 * **기본값**: `[]`
+* **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
 * **설명**: 피벗 테이블의 행 영역에 미리 채울 속성 이름들.
+
+### attributes
+
+* **타입**: `Array<string>`
+* **기본값**: `[]`
+* **필수**: 아니오
+* **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
+* **설명**: 데이터에서 찾은 속성 이름 목록. 제공하지 않으면 데이터에서 자동으로 유도됩니다.
 
 ## 화면 제어 Props
 
@@ -45,14 +57,17 @@
 
 * **타입**: `Number`
 * **기본값**: `0`
+* **검증**: 0 이상이어야 함
+* **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
 * **설명**: 피벗 테이블의 최대 너비를 픽셀 단위로 설정합니다. 0 값은 최대 너비가 없음을 의미합니다.
 
 ## 집계 Props
 
 ### aggregators
 
-* **타입**: `Object`
+* **타입**: `Record<string, AggregatorTemplate>`
 * **기본값**: utilities에서 가져옴
+* **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
 * **설명**: 드롭다운에서 사용 가능한 집계 함수에 대한 생성자 함수 사전 (예: Sum, Count, Average).
 
 ### aggregatorName
@@ -117,13 +132,17 @@
 
 * **타입**: `String`
 * **기본값**: `'key_a_to_z'`
-* **설명**: 행 데이터가 렌더러에 제공되는 순서. 옵션은 `'key_a_to_z'`, `'value_a_to_z'`, 또는 `'value_z_to_a'`입니다.
+* **허용 값**: `'key_a_to_z'`, `'value_a_to_z'`, `'value_z_to_a'`
+* **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
+* **설명**: 행 데이터가 렌더러에 제공되는 순서.
 
 ### colOrder
 
 * **타입**: `String`
 * **기본값**: `'key_a_to_z'`
-* **설명**: 열 데이터가 렌더러에 제공되는 순서. `rowOrder`와 동일한 옵션을 가집니다.
+* **허용 값**: `'key_a_to_z'`, `'value_a_to_z'`, `'value_z_to_a'`
+* **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
+* **설명**: 열 데이터가 렌더러에 제공되는 순서.
 
 ## 현지화 Props
 
@@ -139,7 +158,9 @@
 * **기본값**: 가져온 locales
 * **설명**: 다양한 언어에 대한 번역 및 형식 지정 옵션이 포함된 객체.
 
-## UI 제어 Props (PivottableUi 전용)
+## VuePivottableUi Props
+
+이 props는 `VuePivottableUi` 컴포넌트에 특화된 것으로 상호작용 UI 동작을 제어합니다.
 
 ### hiddenAttributes
 
@@ -176,6 +197,23 @@
 * **타입**: `Boolean`
 * **기본값**: `false`
 * **설명**: 현재 피벗 테이블에서 사용되지 않는 속성에 대한 필터 박스를 숨길지 여부.
+
+### pivotModel
+
+* **타입**: `PivotModelInterface`
+* **기본값**: `undefined`
+* **설명**: 피벗 테이블 상태를 제어하는 외부 모델. `v-model:pivotModel`을 통한 피벗 테이블 구성의 양방향 바인딩을 허용합니다. 제공되면 rows, cols, vals 등과 같은 개별 props를 오버라이드합니다. 모델에는 다음이 포함됩니다:
+  - `rows`: 행 속성 이름 배열
+  - `cols`: 열 속성 이름 배열
+  - `vals`: 값 속성 이름 배열
+  - `aggregatorName`: 집계 함수 이름
+  - `rendererName`: 렌더러 이름
+  - `valueFilter`: 속성 값에 대한 필터 구성
+  - `rowOrder`: 행 정렬 순서
+  - `colOrder`: 열 정렬 순서
+  - `heatmapMode`: 히트맵 표시 모드
+  
+  피벗 테이블 상태를 저장/복원하고 상위 컴포넌트와 상태를 동기화하는 데 유용합니다.
 
 ## 제거된 Props
 
@@ -215,10 +253,3 @@
 * **이전 기본값**: `[]`
 * **상태**: 완전히 제거됨
 * **설명**: 이전에는 UI의 드래그 앤 드롭 부분에서 비활성화할 속성 이름을 포함했습니다.
-
-### pivotModel
-
-* **타입**: `Object`
-* **이전 기본값**: `{}`
-* **상태**: 완전히 제거됨
-* **설명**: 피벗 테이블 상태를 제어하는 외부 모델.

@@ -2,14 +2,14 @@
 outline: deep
 ---
 
-# Getting Started
+# はじめに
 
-## Installation
+## インストール
 
 ### NPM
 
 ```bash
-# install in your project
+# プロジェクトにインストール
 npm install vue-pivottable
 ```
 
@@ -19,23 +19,23 @@ npm install vue-pivottable
 pnpm install vue-pivottable
 ```
 
-### Direct Download / CDN
+### 直接ダウンロード / CDN
 
 📦 **unpkg** : <https://unpkg.com/vue-pivottable@1.0.0-alpha.3/dist/vue-pivottable.umd.js><br/>
 🌏 **jsDelivr** : <https://cdn.jsdelivr.net/npm/vue-pivottable@1.0.0-alpha.3/dist/vue-pivottable.umd.min.js>
 
 ```html
-<!-- Include vue-pivottable after Vue -->
+<!-- Vue後にvue-pivottableをインクルード -->
 <script src="/path/to/vue.js"></script>
 <script src="/path/to/vue-pivottable.umd.min.js"></script>
 ```
 
-## Quick Start
+## クイックスタート
 
 ### Vue Pivottable
 
-`VuePivottable` is a simple component that renders a static pivot table.  
-It displays `data` according to the specified `rows` and `cols` options.
+`VuePivottable`は静的なピボットテーブルをレンダリングする簡単なコンポーネントです。  
+指定された`rows`と`cols`オプションに従って`data`を表示します。
 
 ```vue
 <template>
@@ -55,8 +55,8 @@ import "vue-pivottable/dist/vue-pivottable.css";
 </script>
 ```
 
-> 🔴 You must import the `vue-pivottable.css` file to apply the default styling.
-> Without this CSS, the pivot table may not be displayed correctly.
+> 🔴 デフォルトスタイルを適用するには`vue-pivottable.css`ファイルをインポートする必要があります。
+> このCSSがないと、ピボットテーブルが正しく表示されない場合があります。
 
 <iframe
   src="https://stackblitz.com/edit/vitejs-vite-iyiexnrn?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
@@ -70,9 +70,8 @@ import "vue-pivottable/dist/vue-pivottable.css";
 
 ### Vue Pivottable UI
 
-`VuePivottableUi` extends the functionality by providing a user interface
-that allows users to dynamically customize `rows` and `cols`.
-Users can adjust how the pivot table is displayed by dragging attributes between areas or applying filters to the data.
+`VuePivottableUi`は、ユーザーが動的に`rows`と`cols`をカスタマイズできるユーザーインターフェースを提供することで機能を拡張します。
+ユーザーは属性をエリア間でドラッグしたり、データにフィルターを適用したりして、ピボットテーブルの表示方法を調整できます。
 
 ```vue
 <template>
@@ -104,5 +103,5 @@ import "vue-pivottable/dist/vue-pivottable.css";
 
 ### Vue Pivottable UI with Plotly Renderer
 
-The Plotly renderer is not included in the core `vue-pivottable` library by default, but you can install and use it separately.
-Check the renderer section at https://vue-pivottable.vercel.app/renderer.html for more details.
+Plotlyレンダラーはコア`vue-pivottable`ライブラリにデフォルトでは含まれていませんが、別途インストールして使用できます。
+詳細については https://vue-pivottable.vercel.app/renderer.html のレンダラーセクションをご確認ください。

@@ -1,18 +1,18 @@
-# Slot
+# 슬롯
 
-Options for customizing vue-pivottable-ui.
+vue-pivottable-ui를 커스터마이징하기 위한 옵션입니다.
 
 :::warning
-Both slot and scoped slots are supported, but the use of the v-slot directive is recommended.
+슬롯과 스코프드 슬롯 모두 지원되지만, v-slot 디렉티브 사용을 권장합니다.
 :::
 
 ## rendererCell
 
-If you want to replace the selection UI that selects the renderer, use the `rendererCell` slot.
+렌더러를 선택하는 선택 UI를 교체하려면 `rendererCell` 슬롯을 사용하세요.
 
 ```vue{10-12}
 <template>
-  <vue-pivottable-ui
+  <VuePivottableUi
     :data="[
       { color: 'blue', shape: 'circle' },
       { color: 'red', shape: 'triangle' },
@@ -21,9 +21,9 @@ If you want to replace the selection UI that selects the renderer, use the `rend
     :cols="['shape']"
   >
     <template v-slot:rendererCell>
-      <i class="fas fa-table" style="margin-right: 0.25rem"></i>Table2
+      <i class="fas fa-table" style="margin-right: 0.25rem"></i>테이블
     </template>
-  </vue-pivottable-ui>
+  </VuePivottableUi>
 </template>
 
 <script>
@@ -37,20 +37,23 @@ export default {
 </script>
 ```
 
-<iframe src="https://codesandbox.io/embed/vue-pivottable-ui-renderercellslot-1sf5v?fontsize=14&hidenavigation=1&theme=light&view=preview"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="vue-pivottable-ui_RendererCellSlot"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+<iframe
+  src="https://stackblitz.com/edit/vitejs-vite-ub7qwho7?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  width="100%"
+  height="500"
+  style="border:0; border-radius: 4px; overflow:hidden;"
+  title="Vite Vue3 Sample"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
+></iframe>
 
 ## aggregatorCell
 
-If you want to replace the select UI that selects the aggregator you can use it.
+집계자를 선택하는 선택 UI를 교체하려면 이것을 사용할 수 있습니다.
 
 ```vue{10-12}
 <template>
-  <vue-pivottable-ui
+  <VuePivottableUi
     :data="[
       { color: 'blue', shape: 'circle' },
       { color: 'red', shape: 'triangle' },
@@ -59,145 +62,125 @@ If you want to replace the select UI that selects the aggregator you can use it.
     :cols="['shape']"
   >
     <template v-slot:aggregatorCell>
-      <i class="fas fa-calculator" style="margin-right: 0.25rem"></i>Count
+      <i class="fas fa-calculator" style="margin-right: 0.25rem"></i>개수
     </template>
-  </vue-pivottable-ui>
+  </VuePivottableUi>
 </template>
 
-<script>
-import { VuePivottableUi } from "vue-pivottable";
-import "vue-pivottable/dist/vue-pivottable.css";
-export default {
-  components: {
-    VuePivottableUi,
-  },
-};
+<script setup>
+import { VuePivottableUi } from 'vue-pivottable';
+import 'vue-pivottable/dist/vue-pivottable.css';
 </script>
 ```
 
-<iframe src="https://codesandbox.io/embed/vue-pivottable-ui-aggregatorcellslot-bol0q?fontsize=14&hidenavigation=1&theme=light&view=preview"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="vue-pivottable-ui_AggregatorCellSlot"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+<iframe
+  src="https://stackblitz.com/edit/vitejs-vite-a6unsocw?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  width="100%"
+  height="500"
+  style="border:0; border-radius: 4px; overflow:hidden;"
+  title="Vite Vue3 Sample"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
+></iframe>
 
 ## colGroup
 
-You can use this slot if you want the width of `td.pvtAxisContainer` to be fixed, or if you want not the drag field to overflow `td.pvtAxisContainer` .
+`td.pvtAxisContainer`의 너비를 고정하거나 드래그된 필드가 넘치지 않도록 하려면 이 슬롯을 사용할 수 있습니다.
 
 ::: tip
-`td.pvtAxisContainer` has **overflow-x:auto;** property.
+`td.pvtAxisContainer` 요소는 **overflow-x: auto** CSS 속성을 가지므로, 내용이 넘치면 수평 스크롤이 나타납니다.
 :::
 
-```vue{13-16}
+```vue{10-12}
 <template>
-  <div>
-    <vue-pivottable-ui
-      :data="[
-        { color: 'blue', shapeeeeeeeeeeeeeeee: 'circle' },
-        { color: 'red', shapeeeeeeeeeeeeeeee: 'triangle' },
-      ]"
-      :rows="['color', 'shapeeeeeeeeeeeeeeee']"
-      :cols="[]"
-    >
-      <template v-slot:rendererCell>Table</template>
-      <template v-slot:aggregatorCell>Count</template>
-      <template v-slot:colGroup>
-        <colGroup :width="colGroupFirstWidth"></colGroup>
-        <colGroup></colGroup>
-      </template>
-    </vue-pivottable-ui>
-    <div class="m-1">
-      <label>colGroupFirstWidth: </label>
-      <input v-model="colGroupFirstWidth" type="number" />
-    </div>
+  <VuePivottableUi
+    :data="[
+      { color: 'blue', shapeeeeeeeeeeeeeeee: 'circle' },
+      { color: 'red', shapeeeeeeeeeeeeeeee: 'triangle' },
+    ]"
+    :rows="['color', 'shapeeeeeeeeeeeeeeee']"
+    :cols="[]"
+  >
+    <template v-slot:colGroup>
+      <colgroup :width="colGroupFixedWidth"></colgroup>
+    </template>
+  </VuePivottableUi>
+  <div style="margin: 5px;">
+    <label>colGroup 고정 너비: </label>
+    <input v-model="colGroupFixedWidth" type="number" />
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from "vue";
 import { VuePivottableUi } from "vue-pivottable";
 import "vue-pivottable/dist/vue-pivottable.css";
-export default {
-  components: {
-    VuePivottableUi,
-  },
-  data() {
-    return {
-      colGroupFirstWidth: 250,
-    };
-  },
-};
+
+const colGroupFixedWidth = ref(250);
 </script>
 ```
 
-<iframe src="https://codesandbox.io/embed/vue-pivottable-ui-colgroupslot-9k8uv?fontsize=14&hidenavigation=1&theme=light&view=preview"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="vue-pivottable-ui_ColGroupSlot"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+<iframe
+  src="https://stackblitz.com/edit/vitejs-vite-j3mz9xle?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  width="100%"
+  height="500"
+  style="border:0; border-radius: 4px; overflow:hidden;"
+  title="Vite Vue3 Sample"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
+></iframe>
 
 ## output
 
-This is a slot that replaces the area in `td.pvtOutput`.
+`td.pvtOutput` 영역을 교체하는 슬롯입니다.
 
-```vue{11-13}
+```vue{10-12}
 <template>
-  <div>
-    <vue-pivottable-ui
-      :data="[
-        { color: 'blue', shape: 'circle' },
-        { color: 'red', shape: 'triangle' },
-      ]"
-      :rows="['color']"
-      :cols="['shape']"
-    >
-      <template v-slot:output v-if="!loaded">
-        <div class="p-1">loading...</div>
-      </template>
-    </vue-pivottable-ui>
-    <button
-      class="btn btn-sm btn-secondary mt-1"
-      :disabled="!loaded"
-      @click="reload"
-    >
-      <i class="fas fa-redo mr-25"></i>
-      redo
-    </button>
-  </div>
+  <VuePivottableUi
+    :data="[
+      { color: 'blue', shape: 'circle' },
+      { color: 'red', shape: 'triangle' },
+    ]"
+    :rows="['color']"
+    :cols="['shape']"
+  >
+    <template v-slot:output v-if="!loaded">
+      <div style="padding: 10px">로딩 중...</div>
+    </template>
+  </VuePivottableUi>
+  <button style="margin-top: 5px" :disabled="!loaded" @click="reload">
+    <i class="fas fa-redo mr-25"></i>
+    다시 실행
+  </button>
 </template>
 
-<script>
-import { VuePivottableUi } from "vue-pivottable";
-import "vue-pivottable/dist/vue-pivottable.css";
-export default {
-  components: {
-    VuePivottableUi,
-  },
-  data() {
-    return {
-      loaded: false,
-    };
-  },
-  methods: {
-    reload() {
-      this.loaded = false;
-      setTimeout(() => {
-        this.loaded = true;
-      }, 1000);
-    },
-  },
-  mounted() {
-    this.reload();
-  },
+<script setup>
+import { VuePivottableUi } from 'vue-pivottable';
+import 'vue-pivottable/dist/vue-pivottable.css';
+import { ref, onMounted } from 'vue';
+
+const loaded = ref(false);
+
+const reload = () => {
+  loaded.value = false;
+  setTimeout(() => {
+    loaded.value = true;
+  }, 1000);
 };
+
+onMounted(() => {
+  reload();
+});
 </script>
+
 ```
 
-<iframe src="https://codesandbox.io/embed/vue-pivottable-ui-outputslot-nct9t?fontsize=14&hidenavigation=1&theme=light&view=preview"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="vue-pivottable-ui_OutputSlot"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+<iframe
+  src="https://stackblitz.com/edit/vitejs-vite-d9mktvjw?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  width="100%"
+  height="500"
+  style="border:0; border-radius: 4px; overflow:hidden;"
+  title="Vite Vue3 Sample"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
+></iframe>
