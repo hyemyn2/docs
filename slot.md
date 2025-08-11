@@ -15,28 +15,23 @@ If you want to replace the selection UI that selects the renderer, use the `rend
   <VuePivottableUi
     :data="[
       { color: 'blue', shape: 'circle' },
-      { color: 'red', shape: 'triangle' },
+      { color: 'red', shape: 'triangle' }
     ]"
     :rows="['color']"
     :cols="['shape']"
   >
+
     <template v-slot:rendererCell>
       <i class="fas fa-table" style="margin-right: 0.25rem"></i>Table
     </template>
   </VuePivottableUi>
 </template>
 
-<script>
-import { VuePivottableUi } from "vue-pivottable";
-import "vue-pivottable/dist/vue-pivottable.css";
-export default {
-  components: {
-    VuePivottableUi,
-  },
-};
+<script setup>
+import { VuePivottableUi } from 'vue-pivottable'
+import 'vue-pivottable/dist/vue-pivottable.css'
 </script>
 ```
-
 <iframe
   src="https://stackblitz.com/edit/vitejs-vite-ub7qwho7?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
   width="100%"
@@ -61,7 +56,7 @@ If you want to replace the select UI that selects the aggregator you can use it.
     :rows="['color']"
     :cols="['shape']"
   >
-    <template v-slot:aggregatorCell>
+    <template #aggregatorCell>
       <i class="fas fa-calculator" style="margin-right: 0.25rem"></i>Count
     </template>
   </VuePivottableUi>
@@ -118,6 +113,7 @@ import "vue-pivottable/dist/vue-pivottable.css";
 
 const colGroupFixedWidth = ref(250);
 </script>
+
 ```
 
 <iframe
