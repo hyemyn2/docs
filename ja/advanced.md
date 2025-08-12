@@ -1,14 +1,14 @@
-# Advanced Usage
+# 高度な使用法
 
-## Two-way Binding with PivotModel
+## PivotModelによる双方向バインディング
 
-The `pivotModel` prop enables two-way binding of the pivot table's state, allowing you to:
-- Track all user interactions in real-time
-- Save and restore pivot table configurations
-- Synchronize state between multiple components
-- Implement undo/redo functionality
+`pivotModel`プロパティは、ピボットテーブルの状態の双方向バインディングを可能にし、以下のことができます：
+- すべてのユーザーインタラクションをリアルタイムで追跡
+- ピボットテーブルの構成を保存および復元
+- 複数のコンポーネント間で状態を同期
+- 元に戻す/やり直し機能を実装
 
-### Basic Usage
+### 基本的な使用法
 
 ```vue
 <template>
@@ -36,13 +36,13 @@ const pivotModel = ref({
 })
 
 const onPivotModelChange = (model) => {
-  console.log('Pivot table configuration changed:', model)
-  // Save to localStorage, database, etc.
+  console.log('ピボットテーブルの構成が変更されました:', model)
+  // localStorage、データベースなどに保存
 }
 </script>
 ```
 
-### PivotModel Interface
+### PivotModelインターフェース
 
 ```typescript
 interface PivotModelInterface {
@@ -60,9 +60,9 @@ interface PivotModelInterface {
 }
 ```
 
-### State Persistence
+### 状態の永続化
 
-Save and restore pivot table configurations:
+ピボットテーブルの構成を保存および復元：
 
 ```vue
 <script setup>
@@ -70,7 +70,7 @@ import { ref, onMounted } from 'vue'
 
 const pivotModel = ref()
 
-// Load saved state
+// 保存された状態を読み込む
 onMounted(() => {
   const saved = localStorage.getItem('pivotState')
   if (saved) {
@@ -78,16 +78,16 @@ onMounted(() => {
   }
 })
 
-// Save state on changes
+// 変更時に状態を保存
 const onPivotModelChange = (model) => {
   localStorage.setItem('pivotState', JSON.stringify(model))
 }
 </script>
 ```
 
-### History Management
+### 履歴管理
 
-Use the `usePivotModelHistory` composable for undo/redo functionality:
+元に戻す/やり直し機能のための`usePivotModelHistory`コンポジションAPIを使用：
 
 ```vue
 <script setup>
@@ -97,7 +97,7 @@ import { usePivotModelHistory } from 'vue-pivottable'
 const pivotModel = ref({
   rows: [],
   cols: [],
-  // ... initial configuration
+  // ... 初期設定
 })
 
 const {
@@ -111,9 +111,9 @@ const {
 
 <template>
   <div>
-    <button @click="undo" :disabled="!canUndo">Undo</button>
-    <button @click="redo" :disabled="!canRedo">Redo</button>
-    <button @click="clear">Clear History</button>
+    <button @click="undo" :disabled="!canUndo">元に戻す</button>
+    <button @click="redo" :disabled="!canRedo">やり直す</button>
+    <button @click="clear">履歴をクリア</button>
     
     <VuePivottableUi
       v-model:pivot-model="pivotModel"
@@ -124,24 +124,24 @@ const {
 </template>
 ```
 
-## Custom Aggregators
+## カスタム集計関数
 
-Create custom aggregation functions:
+カスタム集計関数を作成：
 
 ```javascript
 import { aggregatorTemplates, numberFormat } from 'vue-pivottable'
 
 const customAggregators = {
-  // Simple count aggregator
-  'Custom Count': aggregatorTemplates.count(),
+  // シンプルなカウント集計
+  'カスタムカウント': aggregatorTemplates.count(),
   
-  // Sum with custom formatting
-  'Currency Sum': aggregatorTemplates.sum(
-    numberFormat({ prefix: '$', digitsAfterDecimal: 2 })
+  // カスタムフォーマットの合計
+  '通貨合計': aggregatorTemplates.sum(
+    numberFormat({ prefix: '¥', digitsAfterDecimal: 0 })
   ),
   
-  // Completely custom aggregator
-  'Median': () => {
+  // 完全にカスタマイズされた集計
+  '中央値': () => {
     return ([attr]) => {
       return () => ({
         values: [],
@@ -166,9 +166,9 @@ const customAggregators = {
 }
 ```
 
-## Custom Renderers
+## カスタムレンダラー
 
-Create custom visualization components:
+カスタム視覚化コンポーネントを作成：
 
 ```vue
 <!-- CustomRenderer.vue -->
@@ -176,7 +176,7 @@ Create custom visualization components:
   <div class="custom-renderer">
     <h3>{{ title }}</h3>
     <div class="chart-container">
-      <!-- Your custom visualization here -->
+      <!-- ここにカスタム視覚化 -->
     </div>
   </div>
 </template>
@@ -185,14 +185,14 @@ Create custom visualization components:
 import { useProvidePivotData } from 'vue-pivottable'
 
 const props = defineProps({
-  // All pivot table props are passed to renderers
+  // すべてのピボットテーブルpropsがレンダラーに渡されます
   data: Array,
   rows: Array,
   cols: Array,
-  // ... other props
+  // ... その他のprops
 })
 
-// Access computed pivot data
+// 計算されたピボットデータにアクセス
 const { pivotData, rowKeys, colKeys } = useProvidePivotData(props)
 
 const title = computed(() => 
@@ -201,7 +201,7 @@ const title = computed(() =>
 </script>
 ```
 
-Register and use the custom renderer:
+カスタムレンダラーの登録と使用：
 
 ```vue
 <script setup>
@@ -209,7 +209,7 @@ import { markRaw } from 'vue'
 import CustomRenderer from './CustomRenderer.vue'
 
 const renderers = markRaw({
-  'Custom Chart': {
+  'カスタムチャート': {
     name: 'CustomChart',
     setup(props) {
       return () => h(CustomRenderer, props)
@@ -219,18 +219,18 @@ const renderers = markRaw({
 </script>
 ```
 
-## Performance Optimization
+## パフォーマンスの最適化
 
-### Large Datasets
+### 大規模データセット
 
-For large datasets, consider:
+大規模データセットの場合、以下を検討してください：
 
-1. **Data virtualization**: Use a virtualized table renderer
-2. **Lazy loading**: Load data on demand
-3. **Web Workers**: Process data in background threads
+1. **データの仮想化**: 仮想化されたテーブルレンダラーを使用
+2. **遅延読み込み**: 必要に応じてデータを読み込む
+3. **Web Workers**: バックグラウンドスレッドでデータを処理
 
 ```javascript
-// Example: Processing data in a Web Worker
+// 例：Web Workerでのデータ処理
 const worker = new Worker('pivot-worker.js')
 
 worker.postMessage({
@@ -246,32 +246,32 @@ worker.onmessage = (e) => {
 }
 ```
 
-### Memory Management
+### メモリ管理
 
-The pivot table automatically cleans up resources when unmounted. For manual cleanup:
+ピボットテーブルはアンマウント時に自動的にリソースをクリーンアップします。手動クリーンアップの場合：
 
 ```vue
 <script setup>
 import { onUnmounted } from 'vue'
 
-// Resources are automatically cleaned up
+// リソースは自動的にクリーンアップされます
 onUnmounted(() => {
-  // Additional cleanup if needed
+  // 必要に応じて追加のクリーンアップ
 })
 </script>
 ```
 
-## Advanced Filtering
+## 高度なフィルタリング
 
-### Dynamic Filters
+### 動的フィルター
 
-Create dynamic filter conditions:
+動的フィルター条件を作成：
 
 ```javascript
 const dynamicFilter = computed(() => {
   const filter = {}
   
-  // Filter by date range
+  // 日付範囲でフィルタリング
   if (startDate.value && endDate.value) {
     filter.Date = (value) => {
       const date = new Date(value)
@@ -279,7 +279,7 @@ const dynamicFilter = computed(() => {
     }
   }
   
-  // Filter by amount threshold
+  // 金額のしきい値でフィルタリング
   if (minAmount.value) {
     filter.Amount = (value) => value >= minAmount.value
   }
@@ -288,23 +288,23 @@ const dynamicFilter = computed(() => {
 })
 ```
 
-### Programmatic Filter Control
+### プログラムによるフィルター制御
 
-Control filters programmatically:
+プログラムでフィルターを制御：
 
 ```javascript
-// Clear all filters
+// すべてのフィルターをクリア
 pivotModel.value.valueFilter = {}
 
-// Apply specific filter
+// 特定のフィルターを適用
 pivotModel.value.valueFilter = {
   Category: {
-    'Electronics': false,  // Exclude Electronics
-    'Clothing': false     // Exclude Clothing
+    'Electronics': false,  // Electronicsを除外
+    'Clothing': false     // Clothingを除外
   }
 }
 
-// Toggle filter for a value
+// 値のフィルターを切り替える
 const toggleFilter = (attribute, value) => {
   const currentFilter = pivotModel.value.valueFilter[attribute] || {}
   

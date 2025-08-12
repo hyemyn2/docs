@@ -70,7 +70,7 @@ export default defineConfig({
           }
         ],
         socialLinks: [
-          { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+          { icon: 'github', link: 'https://github.com/vue-pivottable/vue3-pivottable' }
         ]
       }
     },
@@ -124,14 +124,14 @@ export default defineConfig({
             ]
           },
           {
-            text: 'Props', link: '/ko/props' 
+            text: '속성', link: '/ko/props' 
           },
           {
             text: '스타일링', link: '/ko/styling' 
           }
         ],
         socialLinks: [
-          { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+          { icon: 'github', link: 'https://github.com/vue-pivottable/vue3-pivottable' }
         ]
       }
     },
@@ -171,11 +171,11 @@ export default defineConfig({
             text: 'ガイド',
             items: [
               { text: 'はじめに', link: '/ja/introduction' },
-              { text: 'はじめに', link: '/ja/getting-started' },
+              { text: 'スタートガイド', link: '/ja/getting-started' },
             ]
           },
           {
-            text: '高級',
+            text: '高度な使用法',
             items: [
               { text: 'ロケール', link: '/ja/locale' },
               { text: 'スロット', link: '/ja/slot' },
@@ -185,14 +185,14 @@ export default defineConfig({
             ]
           },
           {
-            text: 'Props', link: '/ja/props' 
+            text: 'プロパティ', link: '/ja/props' 
           },
           {
             text: 'スタイリング', link: '/ja/styling' 
           }
         ],
         socialLinks: [
-          { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+          { icon: 'github', link: 'https://github.com/vue-pivottable/vue3-pivottable' }
         ]
       }
     },
@@ -246,14 +246,14 @@ export default defineConfig({
             ]
           },
           {
-            text: 'Props', link: '/zh/props' 
+            text: '属性', link: '/zh/props' 
           },
           {
             text: '样式', link: '/zh/styling' 
           }
         ],
         socialLinks: [
-          { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+          { icon: 'github', link: 'https://github.com/vue-pivottable/vue3-pivottable' }
         ]
       }
     }

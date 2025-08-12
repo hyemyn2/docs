@@ -1,4 +1,4 @@
-# Utilities
+# 工具函数
 
 ```js
 import { PivotUtilities } from 'vue-pivottable'
@@ -21,37 +21,37 @@ import { PivotUtilities } from 'vue-pivottable'
 ```js
 const sorters = function () {
   return {
-    'Day of Week': PivotUtilities.sortAs(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+    '星期': PivotUtilities.sortAs(['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'])
   }
 }
 ```
 
 ## aggregatorTemplates
 
-Built-in Aggregators and Aggregator Templates
+内置聚合器和聚合器模板
 
 ```js
 const aggregators = ((tpl) => ({
-    'Count': tpl.count(usFmtInt),
-    'Count Unique Values': tpl.countUnique(usFmtInt),
-    'List Unique Values': tpl.listUnique(', '),
-    Sum: tpl.sum(usFmt),
-    'Integer Sum': tpl.sum(usFmtInt),
-    'Average': tpl.average(usFmt),
-    'Median': tpl.median(usFmt),
-    'Sample Variance': tpl.var(1, usFmt),
-    'Sample Standard Deviation': tpl.stdev(1, usFmt),
-    'Minimum': tpl.min(usFmt),
-    'Maximum': tpl.max(usFmt),
-    'First': tpl.first(usFmt),
-    'Last': tpl.last(usFmt),
-    'Sum over Sum': tpl.sumOverSum(usFmt),
-    'Sum as Fraction of Total': tpl.fractionOf(tpl.sum(), 'total', usFmtPct),
-    'Sum as Fraction of Rows': tpl.fractionOf(tpl.sum(), 'row', usFmtPct),
-    'Sum as Fraction of Columns': tpl.fractionOf(tpl.sum(), 'col', usFmtPct),
-    'Count as Fraction of Total': tpl.fractionOf(tpl.count(), 'total', usFmtPct),
-    'Count as Fraction of Rows': tpl.fractionOf(tpl.count(), 'row', usFmtPct),
-    'Count as Fraction of Columns': tpl.fractionOf(tpl.count(), 'col', usFmtPct)
+    '计数': tpl.count(usFmtInt),
+    '唯一值计数': tpl.countUnique(usFmtInt),
+    '唯一值列表': tpl.listUnique(', '),
+    '求和': tpl.sum(usFmt),
+    '整数求和': tpl.sum(usFmtInt),
+    '平均值': tpl.average(usFmt),
+    '中位数': tpl.median(usFmt),
+    '样本方差': tpl.var(1, usFmt),
+    '样本标准差': tpl.stdev(1, usFmt),
+    '最小值': tpl.min(usFmt),
+    '最大值': tpl.max(usFmt),
+    '第一个': tpl.first(usFmt),
+    '最后一个': tpl.last(usFmt),
+    '求和除以求和': tpl.sumOverSum(usFmt),
+    '占总计的比例': tpl.fractionOf(tpl.sum(), 'total', usFmtPct),
+    '占行总计的比例': tpl.fractionOf(tpl.sum(), 'row', usFmtPct),
+    '占列总计的比例': tpl.fractionOf(tpl.sum(), 'col', usFmtPct),
+    '计数占总计的比例': tpl.fractionOf(tpl.count(), 'total', usFmtPct),
+    '计数占行总计的比例': tpl.fractionOf(tpl.count(), 'row', usFmtPct),
+    '计数占列总计的比例': tpl.fractionOf(tpl.count(), 'col', usFmtPct)
   })
 )(PivotUtilities.aggregatorTemplates)
 ```
@@ -75,21 +75,19 @@ const locales = {
       by: 'by'
     }
   },
-  fr: {
-    frAggregators,
+  zh: {
+    zhAggregators,
     localeStrings: {
-      renderError: 'Une erreur est survenue en dessinant le tableau croisé.',
-      computeError: 'Une erreur est survenue en calculant le tableau croisé.',
-      uiRenderError: "Une erreur est survenue en dessinant l'interface du tableau croisé dynamique.",
-      selectAll: 'Sélectionner tout',
-      selectNone: 'Ne rien sélectionner',
-      tooMany: '(trop de valeurs à afficher)',
-      filterResults: 'Filtrer les valeurs',
-      totals: 'Totaux',
-      vs: 'sur',
-      by: 'par',
-      apply: 'Appliquer',
-      cancel: 'Annuler'
+      renderError: '渲染透视表结果时发生错误。',
+      computeError: '计算透视表结果时发生错误。',
+      uiRenderError: '渲染透视表UI时发生错误。',
+      selectAll: '全选',
+      selectNone: '取消选择',
+      tooMany: '(项目太多无法列出)',
+      filterResults: '筛选值',
+      totals: '合计',
+      vs: 'vs',
+      by: 'by'
     }
   }
 }

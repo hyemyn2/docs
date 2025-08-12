@@ -1,8 +1,8 @@
-# Locale
+# 本地化
 
-## How to use?
+## 如何使用？
 
-The default `locales` is defined in `/src/helper/utilities.js`:
+默认的 `locales` 在 `/src/helper/utilities.js` 中定义：
 
 ```js
 const locales = {
@@ -47,10 +47,10 @@ const locales = {
 export { locales };
 ```
 
-## Adding a New Language
+## 添加新语言
 
-To support a new language, provide both the `languagePack` and `locale` props to the component.
-The `languagePack` prop should contain your custom locale definitions, and the `locale` prop should be set to the key of the language you want to display.
+要支持新语言，需要向组件提供 `languagePack` 和 `locale` 两个属性。
+`languagePack` 属性应包含您的自定义本地化定义，`locale` 属性应设置为您要显示的语言的键。
 
 ```vue
 <template>
@@ -72,35 +72,35 @@ import "vue-pivottable/dist/vue-pivottable.css";
 
 const languagePack = {
   en: PivotUtilities.locales.en,
-  ko: {
+  zh: {
     localeStrings: {
-      renderError: "피벗 테이블 결과를 렌더링하는 동안 오류가 발생 했습니다.",
-      computeError: "피벗 테이블 결과를 계산하는 동안 오류가 발생 했습니다.",
-      uiRenderError: "피벗 테이블 UI를 렌더링하는 동안 오류가 발생 했습니다.",
-      selectAll: "모두 선택",
-      selectNone: "선택 안함",
-      tooMany: "표시 할 값이 너무 많습니다.",
-      filterResults: "값 필터링",
-      totals: "합계",
-      only: "단독",
-      vs: "vs",
-      by: "by",
+      renderError: "渲染透视表结果时发生错误。",
+      computeError: "计算透视表结果时发生错误。",
+      uiRenderError: "渲染透视表UI时发生错误。",
+      selectAll: "全选",
+      selectNone: "取消选择",
+      tooMany: "值太多无法显示。",
+      filterResults: "筛选值",
+      totals: "总计",
+      only: "仅",
+      vs: "对比",
+      by: "按",
     },
   },
 };
 
-const locale = "en"; // or 'ko';
+const locale = "en"; // 或 'zh';
 </script>
 ```
 
-## Example
+## 示例
 
 <iframe
   src="https://stackblitz.com/edit/vitejs-vite-aefzv3q9?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
   width="100%"
   height="500"
   style="border:0; border-radius: 4px; overflow:hidden;"
-  title="Vue Pivottable Example: Locale"
+  title="Vue Pivottable 示例：本地化"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
 ></iframe>

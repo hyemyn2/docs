@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # はじめに
 
 ## Vue Pivottableとは？
@@ -43,3 +47,16 @@ Vue Pivottableは以下のデータ形式をサポートします：
 - [インストールとセットアップ](/ja/getting-started)を確認
 - [Props](/ja/props)の詳細を学習
 - [レンダラー](/ja/renderer)のカスタマイゼーションを探索
+
+<br/>
+
+![Vue Pivottable Demo](/vue-pivottable-demo.gif)
+
+## 開発の経緯
+
+- [plotly/react-pivottable](https://github.com/plotly/react-pivottable) - React-based pivot table library
+- [clalarco/vue3-plotly](https://github.com/clalarco/vue3-plotly) - vue wrapper for plotly.js
+
+## ライセンス
+
+Vue Pivottableは、MITライセンスの下でライセンスされたオープンソースソフトウェアです。
