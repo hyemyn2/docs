@@ -1,11 +1,10 @@
+# 样式设置
 
-# Styling
+## 如何设置样式？
 
-## How to Styling?
+这非常简单。从 dist 导入样式，然后定义新样式即可。
 
-This is very simple. Import the style from the dist and then define a new style.
-
-## Example
+## 示例
 
 ### Bootstrap v5.2.2
 
@@ -338,7 +337,7 @@ table.pvtTable th {
 
 :::
 
-### Vuexy UI Template (bootstrap based)
+### Vuexy UI 模板 (基于 Bootstrap)
 
 - <https://pixinvent.com/demo/vuexy-vuejs-admin-dashboard-template/demo-3/table/bs-table>
 

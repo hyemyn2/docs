@@ -1,8 +1,8 @@
-# 언어설정
+# 로케일
 
-## How to use?
+## 사용 방법
 
-The default `locales` is defined in `/src/helper/utilities.js`:
+기본 `locales`는 `/src/helper/utilities.js`에 정의되어 있습니다:
 
 ```js
 const locales = {
@@ -47,10 +47,10 @@ const locales = {
 export { locales };
 ```
 
-## Adding a New Language
+## 새 언어 추가하기
 
-To support a new language, provide both the `languagePack` and `locale` props to the component.
-The `languagePack` prop should contain your custom locale definitions, and the `locale` prop should be set to the key of the language you want to display.
+새로운 언어를 지원하려면 컴포넌트에 `languagePack`과 `locale` props를 모두 제공해야 합니다.
+`languagePack` prop에는 사용자 정의 로케일 정의가 포함되어야 하며, `locale` prop은 표시하려는 언어의 키로 설정해야 합니다.
 
 ```vue
 <template>
@@ -74,12 +74,12 @@ const languagePack = {
   en: PivotUtilities.locales.en,
   ko: {
     localeStrings: {
-      renderError: "피벗 테이블 결과를 렌더링하는 동안 오류가 발생 했습니다.",
-      computeError: "피벗 테이블 결과를 계산하는 동안 오류가 발생 했습니다.",
-      uiRenderError: "피벗 테이블 UI를 렌더링하는 동안 오류가 발생 했습니다.",
+      renderError: "피벗 테이블 결과를 렌더링하는 동안 오류가 발생했습니다.",
+      computeError: "피벗 테이블 결과를 계산하는 동안 오류가 발생했습니다.",
+      uiRenderError: "피벗 테이블 UI를 렌더링하는 동안 오류가 발생했습니다.",
       selectAll: "모두 선택",
       selectNone: "선택 안함",
-      tooMany: "표시 할 값이 너무 많습니다.",
+      tooMany: "표시할 값이 너무 많습니다.",
       filterResults: "값 필터링",
       totals: "합계",
       only: "단독",
@@ -89,18 +89,18 @@ const languagePack = {
   },
 };
 
-const locale = "en"; // or 'ko';
+const locale = "en"; // 또는 'ko';
 </script>
 ```
 
-## Example
+## 예제
 
 <iframe
-  src="https://stackblitz.com/edit/vitejs-vite-aefzv3q9?ctl=1&embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
+  src="https://stackblitz.com/edit/vitejs-vite-aefzv3q9?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1&view=preview"
   width="100%"
   height="500"
   style="border:0; border-radius: 4px; overflow:hidden;"
-  title="Vue Pivottable Example: Locale"
+  title="Vue Pivottable 예제: 로케일"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
 ></iframe>

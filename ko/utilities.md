@@ -1,4 +1,4 @@
-# Utilities
+# 유틸리티
 
 ```js
 import { PivotUtilities } from 'vue-pivottable'
@@ -21,37 +21,37 @@ import { PivotUtilities } from 'vue-pivottable'
 ```js
 const sorters = function () {
   return {
-    'Day of Week': PivotUtilities.sortAs(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+    '요일': PivotUtilities.sortAs(['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'])
   }
 }
 ```
 
 ## aggregatorTemplates
 
-Built-in Aggregators and Aggregator Templates
+내장 집계자 및 집계자 템플릿
 
 ```js
 const aggregators = ((tpl) => ({
-    'Count': tpl.count(usFmtInt),
-    'Count Unique Values': tpl.countUnique(usFmtInt),
-    'List Unique Values': tpl.listUnique(', '),
-    Sum: tpl.sum(usFmt),
-    'Integer Sum': tpl.sum(usFmtInt),
-    'Average': tpl.average(usFmt),
-    'Median': tpl.median(usFmt),
-    'Sample Variance': tpl.var(1, usFmt),
-    'Sample Standard Deviation': tpl.stdev(1, usFmt),
-    'Minimum': tpl.min(usFmt),
-    'Maximum': tpl.max(usFmt),
-    'First': tpl.first(usFmt),
-    'Last': tpl.last(usFmt),
-    'Sum over Sum': tpl.sumOverSum(usFmt),
-    'Sum as Fraction of Total': tpl.fractionOf(tpl.sum(), 'total', usFmtPct),
-    'Sum as Fraction of Rows': tpl.fractionOf(tpl.sum(), 'row', usFmtPct),
-    'Sum as Fraction of Columns': tpl.fractionOf(tpl.sum(), 'col', usFmtPct),
-    'Count as Fraction of Total': tpl.fractionOf(tpl.count(), 'total', usFmtPct),
-    'Count as Fraction of Rows': tpl.fractionOf(tpl.count(), 'row', usFmtPct),
-    'Count as Fraction of Columns': tpl.fractionOf(tpl.count(), 'col', usFmtPct)
+    '개수': tpl.count(usFmtInt),
+    '고유값 개수': tpl.countUnique(usFmtInt),
+    '고유값 목록': tpl.listUnique(', '),
+    '합계': tpl.sum(usFmt),
+    '정수 합계': tpl.sum(usFmtInt),
+    '평균': tpl.average(usFmt),
+    '중앙값': tpl.median(usFmt),
+    '표본 분산': tpl.var(1, usFmt),
+    '표본 표준편차': tpl.stdev(1, usFmt),
+    '최솟값': tpl.min(usFmt),
+    '최댓값': tpl.max(usFmt),
+    '첫 번째': tpl.first(usFmt),
+    '마지막': tpl.last(usFmt),
+    '합계/합계': tpl.sumOverSum(usFmt),
+    '전체 대비 합계 비율': tpl.fractionOf(tpl.sum(), 'total', usFmtPct),
+    '행 대비 합계 비율': tpl.fractionOf(tpl.sum(), 'row', usFmtPct),
+    '열 대비 합계 비율': tpl.fractionOf(tpl.sum(), 'col', usFmtPct),
+    '전체 대비 개수 비율': tpl.fractionOf(tpl.count(), 'total', usFmtPct),
+    '행 대비 개수 비율': tpl.fractionOf(tpl.count(), 'row', usFmtPct),
+    '열 대비 개수 비율': tpl.fractionOf(tpl.count(), 'col', usFmtPct)
   })
 )(PivotUtilities.aggregatorTemplates)
 ```
@@ -75,21 +75,19 @@ const locales = {
       by: 'by'
     }
   },
-  fr: {
-    frAggregators,
+  ko: {
+    koAggregators,
     localeStrings: {
-      renderError: 'Une erreur est survenue en dessinant le tableau croisé.',
-      computeError: 'Une erreur est survenue en calculant le tableau croisé.',
-      uiRenderError: "Une erreur est survenue en dessinant l'interface du tableau croisé dynamique.",
-      selectAll: 'Sélectionner tout',
-      selectNone: 'Ne rien sélectionner',
-      tooMany: '(trop de valeurs à afficher)',
-      filterResults: 'Filtrer les valeurs',
-      totals: 'Totaux',
-      vs: 'sur',
-      by: 'par',
-      apply: 'Appliquer',
-      cancel: 'Annuler'
+      renderError: '피벗 테이블 결과를 렌더링하는 동안 오류가 발생했습니다.',
+      computeError: '피벗 테이블 결과를 계산하는 동안 오류가 발생했습니다.',
+      uiRenderError: '피벗 테이블 UI를 렌더링하는 동안 오류가 발생했습니다.',
+      selectAll: '모두 선택',
+      selectNone: '선택 안함',
+      tooMany: '(표시할 항목이 너무 많습니다)',
+      filterResults: '값 필터링',
+      totals: '합계',
+      vs: 'vs',
+      by: 'by'
     }
   }
 }

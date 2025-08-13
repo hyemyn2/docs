@@ -1,11 +1,10 @@
+# 스타일링
 
-# Styling
+## 스타일링 방법
 
-## How to Styling?
+매우 간단합니다. dist에서 스타일을 가져온 다음 새 스타일을 정의하면 됩니다.
 
-This is very simple. Import the style from the dist and then define a new style.
-
-## Example
+## 예제
 
 ### Bootstrap v5.2.2
 
@@ -338,7 +337,7 @@ table.pvtTable th {
 
 :::
 
-### Vuexy UI Template (bootstrap based)
+### Vuexy UI 템플릿 (Bootstrap 기반)
 
 - <https://pixinvent.com/demo/vuexy-vuejs-admin-dashboard-template/demo-3/table/bs-table>
 

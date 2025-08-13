@@ -1,14 +1,14 @@
-# Scoped Slot
+# 作用域插槽
 
-For more information on ScopedSlot, see the [official Vue documentation](https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots).
+有关作用域插槽的更多信息，请参阅[官方 Vue 文档](https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots)。
 
 :::warning
-Both slot and scoped slots are supported, but the use of the v-slot directive is recommended.
+插槽和作用域插槽都受支持，但建议使用 v-slot 指令。
 :::
 
 ## pvtAttr
 
-If you want to customize the label of each pivot attribute, you can use the `pvtAttr` slot.
+如果您想自定义每个透视属性的标签，可以使用 `pvtAttr` 插槽。
 
 ```vue{10-15}
 <template>
@@ -44,7 +44,7 @@ function capitalize(str) {
   width="100%"
   height="500"
   style="border:0; border-radius: 4px; overflow:hidden;"
-  title="Vite Vue3 Sample"
+  title="Vite Vue3 示例"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox"
 ></iframe>
@@ -66,10 +66,10 @@ function capitalize(str) {
         <div v-if="!viewTable">
           <div class="btn-group">
             <a class="btn btn-sm btn-primary" @click="showTable">
-              View Table
+              查看表格
             </a>
             <a class="btn btn-sm btn-warning" @click="otherAction(pivotData)"
-              >Other action
+              >其他操作
             </a>
           </div>
         </div>
@@ -95,7 +95,7 @@ function capitalize(str) {
       @click="reset"
     >
       <i class="fas fa-redo mr-25"></i>
-      redo
+      重置
     </button>
   </div>
 </template>
@@ -123,7 +123,7 @@ export default {
       this.loaded = true;
     },
     otherAction(pivotData) {
-      alert(`All Total Count: ${pivotData.allTotal.count}`);
+      alert(`所有总计数: ${pivotData.allTotal.count}`);
     },
     reset() {
       this.viewTable = false;
@@ -136,7 +136,7 @@ export default {
 
 <iframe src="https://codesandbox.io/embed/vue-pivottable-ui-outputscopedslot-rcp9k?fontsize=14&hidenavigation=1&theme=light&view=preview"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="vue-pivottable-ui_OutputScopedSlot"
+     title="vue-pivottable-ui_输出作用域插槽"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>

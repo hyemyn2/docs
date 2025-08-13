@@ -1,6 +1,6 @@
-# Props
+# 속성 (Props)
 
-## 핵심 데이터 Props
+## 핵심 데이터 속성
 
 ### data
 
@@ -39,7 +39,7 @@
 * **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
 * **설명**: 데이터에서 찾은 속성 이름 목록. 제공하지 않으면 데이터에서 자동으로 유도됩니다.
 
-## 화면 제어 Props
+## 화면 제어 속성
 
 ### showRowTotal
 
@@ -61,7 +61,7 @@
 * **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
 * **설명**: 피벗 테이블의 최대 너비를 픽셀 단위로 설정합니다. 0 값은 최대 너비가 없음을 의미합니다.
 
-## 집계 Props
+## 집계 속성
 
 ### aggregators
 
@@ -76,7 +76,7 @@
 * **기본값**: `'Count'`
 * **설명**: 계산에 사용할 집계자를 지정하는 `aggregators` 객체의 키.
 
-## 렌더링 Props
+## 렌더링 속성
 
 ### renderers
 
@@ -108,7 +108,7 @@
 * **기본값**: `{}`
 * **설명**: 셀 클릭 처리를 위한 `clickCallback`과 같은 테이블 렌더링에 대한 추가 옵션.
 
-## 필터링 및 정렬 Props
+## 필터링 및 정렬 속성
 
 ### valueFilter
 
@@ -144,7 +144,7 @@
 * **사용 컴포넌트**: `VuePivottable`, `VuePivottableUi`
 * **설명**: 열 데이터가 렌더러에 제공되는 순서.
 
-## 현지화 Props
+## 현지화 속성
 
 ### locale
 
@@ -158,7 +158,7 @@
 * **기본값**: 가져온 locales
 * **설명**: 다양한 언어에 대한 번역 및 형식 지정 옵션이 포함된 객체.
 
-## VuePivottableUi Props
+## VuePivottableUi 속성
 
 이 props는 `VuePivottableUi` 컴포넌트에 특화된 것으로 상호작용 UI 동작을 제어합니다.
 
@@ -215,7 +215,7 @@
   
   피벗 테이블 상태를 저장/복원하고 상위 컴포넌트와 상태를 동기화하는 데 유용합니다.
 
-## 제거된 Props
+## 제거된 속성
 
 다음 props는 현재 버전에서 제거되었거나 변경되었습니다:
 

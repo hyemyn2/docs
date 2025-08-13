@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # 介绍
 
 ## 什么是 Vue Pivottable？
@@ -43,3 +47,16 @@ Vue Pivottable 支持以下数据格式：
 - 查看 [安装和设置](/zh/getting-started)
 - 学习 [属性](/zh/props) 详情
 - 探索 [渲染器](/zh/renderer) 定制
+
+<br/>
+
+![Vue Pivottable Demo](/vue-pivottable-demo.gif)
+
+## 灵感来源
+
+- [plotly/react-pivottable](https://github.com/plotly/react-pivottable) - React-based pivot table library
+- [clalarco/vue3-plotly](https://github.com/clalarco/vue3-plotly) - vue wrapper for plotly.js
+
+## 许可证
+
+Vue Pivottable 是在 MIT 许可证下授权的开源软件。
